@@ -1,116 +1,79 @@
-.container {
-  padding: 0 2rem;
+/* This stylesheet is specially for index file */
+
+.rotateMe {
+  animation-name: wigle;
+  animation-duration: 34s;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.rotateMe-rev {
+  animation-direction: reverse;
+  animation-duration: 20s;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.lightening {
+  animation-name: lightening;
+  animation-duration: 2300ms;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
 }
 
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+.light-delay {
+  animation-delay: 200ms;
+  animation-duration: 2500ms;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+@keyframes wigle {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
+@keyframes lightening {
+  0% {
+    opacity: 0;
+  }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
+  20% {
+    opacity: 0;
+  }
 
-.title,
-.description {
-  text-align: center;
-}
+  30% {
+    opacity: 1;
+  }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
+  40% {
+    opacity: 0;
+  }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
+  50% {
+    opacity: 0;
+  }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-}
+  58% {
+    opacity: 1;
+  }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
-}
+  65% {
+    opacity: 0;
+  }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
+  72% {
+    opacity: 0;
+  }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
+  80% {
+    opacity: 1;
+  }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
+  84% {
+    opacity: 0;
+  }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+  100% {
+    opacity: 0;
   }
 }
