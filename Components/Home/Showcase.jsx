@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import homeStyles from "../../styles/home.module.css";
+import homeStyles from "./home.module.css";
 
 export default function Showcase() {
   return (
