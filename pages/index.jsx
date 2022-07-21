@@ -10,6 +10,8 @@ export default function Home({ lqd }) {
       <Feature {...lqd.featureOne} />
       <div className="w-80 mx-auto h-0.5 bg-gray-400"></div>
       <Feature {...lqd.featureTwo} />
+      <div className="w-80 mx-auto h-0.5 bg-gray-400"></div>
+      <Feature {...lqd.featureThree} />
     </>
   );
 }

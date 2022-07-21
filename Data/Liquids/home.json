@@ -21,5 +21,13 @@
     "imageSrc": "/illustrations/Tree.svg",
     "accentColor": "#00883a",
     "reverse": true
+  },
+  "featureThree": {
+    "title": "Real World Artworks",
+    "subtitle": "Searching the real image as illustration",
+    "text": "You can also download real work images as illustrations for your business. These image are free to use for commercial use. Various categories as fashion, cars, nature and other artworks are available",
+    "imageSrc": "/illustrations/Car.svg",
+    "accentColor": "#AE2924",
+    "reverse": false
   }
 }
