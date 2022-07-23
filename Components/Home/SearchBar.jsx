@@ -10,7 +10,7 @@ export default function SearchBar({
     <form
       onSubmit={(e) => e.preventDefault()}
       className={
-        "flex items-center space-x-4 bg-showcaseBg/70 py-1.5 px-4 rounded-sm " +
+        "flex items-center space-x-4 border-b border-white/25 pb-1 pl-2 " +
         className
       }
     >
@@ -22,7 +22,7 @@ export default function SearchBar({
         ref={ref}
         id="searchBar"
         autoComplete="off"
-        className="placeholder:text-sm placeholder:text-white/40 placeholder:font-light placeholder:italic focus:outline-none font-light bg-transparent text-white/70"
+        className="placeholder:text-sm placeholder:text-white/40 placeholder:font-light placeholder:italic focus:outline-none font-light bg-transparent text-white/70 w-[300px]"
         placeholder={placeholder}
       />
     </form>

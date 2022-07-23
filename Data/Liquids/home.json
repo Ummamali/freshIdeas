@@ -13,5 +13,62 @@
     "Travel",
     "Wallpapers",
     "Technology"
+  ],
+  "cardPresets": {
+    "box": { "colSpan": 1, "rowSpan": 1 },
+    "rect": { "colSpan": 1, "rowSpan": 2 }
+  },
+  "tileRows": 3,
+  "tile": [
+    { "row": 1, "col": 1, "preset": "rect" },
+    { "row": 1, "col": 2, "preset": "box" },
+    { "row": 1, "col": 3, "preset": "rect" },
+    { "row": 3, "col": 1, "preset": "box" },
+    { "row": 2, "col": 2, "preset": "rect" },
+    { "row": 3, "col": 3, "preset": "box" }
+  ],
+  "freshResults": [
+    {
+      "name": "Mountains",
+      "src": "/illustrations/mountains.svg",
+      "id": "15543",
+      "bg": "#444"
+    },
+    {
+      "name": "Mountains",
+      "src": "/illustrations/car.svg",
+      "id": "15543",
+      "bg": "#444"
+    },
+    {
+      "name": "Mountains",
+      "src": "/illustrations/icecream.png",
+      "id": "15543",
+      "bg": "linear-gradient(to top right, #4ac29a, #bdfff3)"
+    },
+    {
+      "name": "Mountains",
+      "src": "/illustrations/Tree.svg",
+      "id": "15543",
+      "bg": "linear-gradient(to right, #9cecfb, #65c7f7, #0052d4)"
+    },
+    {
+      "name": "Mountains",
+      "src": "/illustrations/mountains.svg",
+      "id": "15543",
+      "bg": "#444"
+    },
+    {
+      "name": "Mountains",
+      "src": "/illustrations/mountains.svg",
+      "id": "15543",
+      "bg": "#444"
+    },
+    {
+      "name": "Mountains",
+      "src": "/illustrations/mountains.svg",
+      "id": "15543",
+      "bg": "#444"
+    }
   ]
 }

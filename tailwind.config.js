@@ -19,7 +19,7 @@ module.exports = {
         bannerAccent: "#3096C7",
       },
       maxWidth: {
-        container: "1024px",
+        container: "1224px",
       },
     },
   },

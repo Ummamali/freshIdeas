@@ -39,7 +39,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
     }
   }
   return (
-    <div className="bg-navbg">
+    <div className="bg-showcaseBg">
       <div className="max-w-container mx-auto relative">
         {leftArrow && (
           <button
@@ -61,7 +61,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
         )}
         <div
           className={
-            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3 px-2 scroll-smooth " +
+            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3.5 px-2 scroll-smooth " +
             styles.scrollHidden
           }
           onScroll={scrollHandler}
