@@ -1,17 +1,16 @@
-import Feature from "../Components/Home/Feature";
-import Showcase from "../Components/Home/Showcase";
+import React, { useState } from "react";
+import CategoryBar from "../Components/Home/CategoryBar";
 import { readFromData } from "../utilCode/serverFuncs";
 
 export default function Home({ lqd }) {
-  console.log(lqd);
+  const [category, setCategory] = useState(lqd.categories[0]);
   return (
     <>
-      <Showcase {...lqd.showcase} />
-      <Feature {...lqd.featureOne} />
-      <div className="w-80 mx-auto h-0.5 bg-gray-400"></div>
-      <Feature {...lqd.featureTwo} />
-      <div className="w-80 mx-auto h-0.5 bg-gray-400"></div>
-      <Feature {...lqd.featureThree} />
+      <CategoryBar
+        categories={lqd.categories}
+        current={category}
+        setCurrent={setCategory}
+      />
     </>
   );
 }
