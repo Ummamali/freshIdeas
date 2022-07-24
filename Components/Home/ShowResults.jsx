@@ -6,22 +6,35 @@ import styles from "./ShowResults.module.css";
 
 const palleteLength = 4;
 
-export default function ShowResults({ results, tile }) {
+export default function ShowResults({ results, tile, illPath }) {
   const tiles = [];
   const items = [];
   for (const [i, resItem] of results.entries()) {
     const itemNo = i % tile.length;
     items.push(
-      <SingleResult {...resItem} key={resItem.id} gridArea={tile[itemNo]} />
+      <SingleResult
+        {...resItem}
+        key={resItem.id}
+        gridArea={tile[itemNo]}
+        illPath={illPath}
+      />
     );
     if (items.length === tile.length) {
       const thisItems = [...items];
-      tiles.push(<div className={styles.singleTile}>{thisItems}</div>);
+      tiles.push(
+        <div className={styles.singleTile} key={`tile-${tiles.length}`}>
+          {thisItems}
+        </div>
+      );
       items.length = 0;
     }
   }
   if (items.length > 0) {
-    tiles.push(<div className={styles.singleTile}>{items}</div>);
+    tiles.push(
+      <div className={styles.singleTile} key={`tile-${tiles.length}`}>
+        {items}
+      </div>
+    );
   }
   return (
     <div className="max-w-container mx-4 sm:mx-6 container:mx-auto">
@@ -30,15 +43,19 @@ export default function ShowResults({ results, tile }) {
   );
 }
 
-function SingleResult({ src, bg, gridArea, pallets = [] }) {
+function SingleResult({ src, bg, gridArea, illPath, pallets = [] }) {
   let [name, type] = getFilename(src).split(".");
   name = titleIt(name);
-  console.log(gridArea);
   return (
     <div className="w-full h-full p-2 card " style={{ gridArea }}>
       <div className="w-full h-full p-2 relative" style={{ background: bg }}>
         <div className="w-full h-full relative">
-          <Image alt={name} src={src} layout="fill" objectFit="contain" />
+          <Image
+            alt={name}
+            src={illPath + "/" + src}
+            layout="fill"
+            objectFit="contain"
+          />
         </div>
         <div className="absolute bottom-0 left-0 w-full h-full details opacity-0 transition-opacity flex flex-col items-stretch justify-between p-5">
           <div className="">
@@ -63,7 +80,10 @@ function SingleResult({ src, bg, gridArea, pallets = [] }) {
             <a
               href={src}
               download={name + "." + type}
-              className="bg-primary text-sm px-5 py-2 brightness-[1.25] hover:brightness-110 rounded-sm text-black/90"
+              style={{
+                backgroundColor: pallets.length > 0 ? pallets[0] : "#2F8F4B",
+              }}
+              className="text-sm px-5 py-2 hover:brightness-110 rounded-sm text-black/70"
             >
               Download
             </a>
@@ -74,11 +94,10 @@ function SingleResult({ src, bg, gridArea, pallets = [] }) {
         .details {
           background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.3) 15%,
-            rgba(0, 0, 0, 0.5) 80%
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.3) 85%
           );
-          backdrop-filter: blur(0.7px);
         }
 
         .card:hover .details {

@@ -1,0 +1,32 @@
+{
+  "car1": {
+    "src": "car.svg",
+    "bg": "linear-gradient(to top, #222, #555)",
+    "pallets": ["#BF2626", "#595959"]
+  },
+  "clouds1": {
+    "src": "clouds.svg",
+    "bg": "linear-gradient(to bottom, #bdd4e7 0%, #8693ab 90%)",
+    "pallets": ["#B4CBD9", "#8593A6", "#595959"]
+  },
+  "gears1": {
+    "src": "gears.svg",
+    "bg": "linear-gradient(to bottom, #BFBFBF, #F2F2F2 20%, #BFBFBF 90%)",
+    "pallets": ["#158FBF", "#737373", "#404040"]
+  },
+  "icecream1": {
+    "src": "icecream.png",
+    "bg": "radial-gradient(circle at center, hsl(199deg 38% 50%), hsl(199deg 58% 60%))",
+    "pallets": ["#F2A71B", "#5357A6", "#62C3D9", "#87BF4E", "#F2780C"]
+  },
+  "mountains1": {
+    "src": "mountains.svg",
+    "bg": "radial-gradient(circle at center, hsl(31 83% 75% / 1), hsl(31deg 94% 64%))",
+    "pallets": ["#A66963", "hsl(31deg 94% 64%)"]
+  },
+  "tree1": {
+    "src": "tree.svg",
+    "bg": "radial-gradient(circle at center, hsl(210 96% 84% / 1), hsl(204 62% 49% / 1))",
+    "pallets": ["#038C33", "#59A8D9", "#8C5A2E"]
+  }
+}

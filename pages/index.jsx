@@ -4,9 +4,9 @@ import Showcase from "../Components/Home/Showcase";
 import ShowResults from "../Components/Home/ShowResults";
 import { readFromData } from "../utilCode/serverFuncs";
 
-export default function Home({ lqd }) {
+export default function Home({ lqd, preload }) {
   const [category, setCategory] = useState(lqd.categories[0]);
-  const [shownResults, setShownResults] = useState(lqd.freshResults);
+  const [shownResults, setShownResults] = useState(preload);
   return (
     <>
       <CategoryBar
@@ -17,9 +17,8 @@ export default function Home({ lqd }) {
       <Showcase {...lqd.showcase} />
       <ShowResults
         results={shownResults}
-        presets={lqd.cardPresets}
         tile={lqd.tile}
-        tileRows={lqd.tileRows}
+        illPath={lqd.illPath}
       />
     </>
   );
@@ -27,5 +26,10 @@ export default function Home({ lqd }) {
 
 export async function getStaticProps() {
   const lqd = await readFromData("Liquids", "home.json");
-  return { props: { lqd } };
+  const illustrations = await readFromData("illustrations.json");
+  const preload = [];
+  for (const item of lqd.fresh) {
+    preload.push({ ...illustrations[item], id: item });
+  }
+  return { props: { lqd, preload } };
 }
