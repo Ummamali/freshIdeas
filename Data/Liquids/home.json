@@ -14,6 +14,10 @@
     "Wallpapers",
     "Technology"
   ],
+  "showcase": {
+    "title": "Unleash the creative power",
+    "text": "Download intuitive and beautiful illustrations for your business, print and digital designs. Get free drawings and shapes!"
+  },
   "cardPresets": {
     "box": { "colSpan": 1, "rowSpan": 1 },
     "rect": { "colSpan": 1, "rowSpan": 2 }
@@ -29,16 +33,17 @@
   ],
   "freshResults": [
     {
-      "name": "Mountains",
       "src": "/illustrations/mountains.svg",
       "id": "15543",
-      "bg": "#444"
+      "bg": "#444",
+      "pallets": ["brown", "gray", "yellow", "white", "orange"]
     },
     {
       "name": "Mountains",
       "src": "/illustrations/car.svg",
       "id": "15543",
-      "bg": "#444"
+      "bg": "#444",
+      "pallets": ["red", "orange", "gray"]
     },
     {
       "name": "Mountains",

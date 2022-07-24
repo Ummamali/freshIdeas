@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 import logoDark from "../../public/imgs/logoDark.svg";
-import SearchBar from "../Home/SearchBar";
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   return (
@@ -20,7 +20,18 @@ export default function Navbar() {
             />
           </a>
         </Link>
-        <SearchBar />
+        <SearchBar
+          className="mainEl"
+          styledJsx={`
+          .mainEl{
+            padding-bottom: 0.3rem;
+          }
+          
+          .mainEl input{
+            width: 18rem;
+          }
+        `}
+        />
       </div>
     </nav>
   );

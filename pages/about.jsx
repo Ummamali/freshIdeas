@@ -1,5 +1,5 @@
-import Feature from "../Components/Home/Feature";
-import Showcase from "../Components/Home/Showcase";
+import Feature from "../Components/About/Feature";
+import Showcase from "../Components/About/Showcase";
 import { readFromData } from "../utilCode/serverFuncs";
 
 export default function About({ lqd }) {

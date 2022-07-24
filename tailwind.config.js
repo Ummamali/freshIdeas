@@ -15,11 +15,10 @@ module.exports = {
         showcaseBg: "#333333",
         showcaseText: "#B1B0B0",
         showcaseHead: "#2E8F4B",
-        secOneAccent: "#9e6d67",
         bannerAccent: "#3096C7",
       },
       maxWidth: {
-        container: "1224px",
+        container: "1324px",
       },
     },
   },
