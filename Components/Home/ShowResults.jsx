@@ -2,49 +2,40 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { getFilename, getFileType, titleIt } from "../../utilCode/neutralFuncs";
 import ColorPallete from "./ColorPallete";
+import styles from "./ShowResults.module.css";
 
 const palleteLength = 4;
 
-export default function ShowResults({ results, presets, tile, tileRows }) {
+export default function ShowResults({ results, tile }) {
+  const tiles = [];
   const items = [];
-  const tileLen = tile.length;
   for (const [i, resItem] of results.entries()) {
-    const itemNo = i % tileLen;
-    const tileNo = parseInt(i / tileLen);
-    const conf = tile[itemNo];
+    const itemNo = i % tile.length;
     items.push(
-      <SingleResult
-        {...resItem}
-        key={resItem.id}
-        preset={presets[conf.preset]}
-        row={conf.row + tileNo * tileRows}
-        col={conf.col}
-      />
+      <SingleResult {...resItem} key={resItem.id} gridArea={tile[itemNo]} />
     );
+    if (items.length === tile.length) {
+      const thisItems = [...items];
+      tiles.push(<div className={styles.singleTile}>{thisItems}</div>);
+      items.length = 0;
+    }
+  }
+  if (items.length > 0) {
+    tiles.push(<div className={styles.singleTile}>{items}</div>);
   }
   return (
-    <div>
-      <div className="max-w-container mx-auto resultContain">{items}</div>
-      <style jsx>{`
-        .resultContain {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          grid-auto-rows: 200px;
-        }
-      `}</style>
+    <div className="max-w-container mx-4 sm:mx-6 container:mx-auto">
+      {tiles}
     </div>
   );
 }
 
-function SingleResult({ src, bg, preset, row, col, pallets = [] }) {
+function SingleResult({ src, bg, gridArea, pallets = [] }) {
   let [name, type] = getFilename(src).split(".");
   name = titleIt(name);
-  const styles = {
-    gridRow: `${row} / span ${preset.rowSpan}`,
-    gridColumn: `${col} / span ${preset.colSpan}`,
-  };
+  console.log(gridArea);
   return (
-    <div className="w-full h-full p-2 card " style={styles}>
+    <div className="w-full h-full p-2 card " style={{ gridArea }}>
       <div className="w-full h-full p-2 relative" style={{ background: bg }}>
         <div className="w-full h-full relative">
           <Image alt={name} src={src} layout="fill" objectFit="contain" />

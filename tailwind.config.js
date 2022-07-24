@@ -1,3 +1,5 @@
+const mainContainer = "1324px";
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -18,7 +20,10 @@ module.exports = {
         bannerAccent: "#3096C7",
       },
       maxWidth: {
-        container: "1324px",
+        container: mainContainer,
+      },
+      screens: {
+        container: mainContainer,
       },
     },
   },
