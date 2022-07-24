@@ -26,7 +26,7 @@ export default function Home({ lqd, preload }) {
 
 export async function getStaticProps() {
   const lqd = await readFromData("Liquids", "home.json");
-  const illustrations = await readFromData("illustrations.json");
+  const illustrations = await readFromData("Main", "illustrations.json");
   const preload = [];
   for (const item of lqd.fresh) {
     preload.push({ ...illustrations[item], id: item });
