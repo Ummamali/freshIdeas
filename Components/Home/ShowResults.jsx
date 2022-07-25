@@ -4,7 +4,10 @@ import { getFilename, getFileType, titleIt } from "../../utilCode/neutralFuncs";
 import ColorPallete from "./ColorPallete";
 import styles from "./ShowResults.module.css";
 
-const palleteLength = 4;
+const configs = {
+  palleteLength: 2,
+  imgPadding: "1rem", // default space around the image
+};
 
 export default function ShowResults({ results, tile, illPath }) {
   const tiles = [];
@@ -43,12 +46,22 @@ export default function ShowResults({ results, tile, illPath }) {
   );
 }
 
-function SingleResult({ src, bg, gridArea, illPath, pallets = [] }) {
+function SingleResult({
+  src,
+  bg,
+  gridArea,
+  illPath,
+  padding = configs.imgPadding,
+  pallets = [],
+}) {
   let [name, type] = getFilename(src).split(".");
   name = titleIt(name);
   return (
     <div className="w-full h-full p-2 card " style={{ gridArea }}>
-      <div className="w-full h-full p-2 relative" style={{ background: bg }}>
+      <div
+        className="w-full h-full p-2 relative"
+        style={{ background: bg, padding }}
+      >
         <div className="w-full h-full relative">
           <Image
             alt={name}
@@ -60,12 +73,12 @@ function SingleResult({ src, bg, gridArea, illPath, pallets = [] }) {
         <div className="absolute bottom-0 left-0 w-full h-full details opacity-0 transition-opacity flex flex-col items-stretch justify-between p-5">
           <div className="">
             <div className="flex items-center space-x-1">
-              {pallets.slice(0, palleteLength).map((p) => (
+              {pallets.slice(0, configs.palleteLength).map((p) => (
                 <ColorPallete key={p} color={p} />
               ))}
-              {pallets.length > palleteLength ? (
-                <small className="text-white/40 text-xs pl-1 italic">
-                  +{pallets.length - palleteLength} more...
+              {pallets.length > configs.palleteLength ? (
+                <small className="text-white/60 text-xs pl-1 italic">
+                  +{pallets.length - configs.palleteLength} more...
                 </small>
               ) : null}
             </div>

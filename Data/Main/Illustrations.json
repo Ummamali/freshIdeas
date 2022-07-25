@@ -12,7 +12,8 @@
   "gears1": {
     "src": "gears.svg",
     "bg": "linear-gradient(to bottom, #BFBFBF, #F2F2F2 20%, #BFBFBF 90%)",
-    "pallets": ["#158FBF", "#737373", "#404040"]
+    "pallets": ["#158FBF", "#737373", "#404040"],
+    "padding": "1.5rem"
   },
   "icecream1": {
     "src": "icecream.png",
@@ -28,5 +29,19 @@
     "src": "tree.svg",
     "bg": "radial-gradient(circle at center, hsl(210 96% 84% / 1), hsl(204 62% 49% / 1))",
     "pallets": ["#038C33", "#59A8D9", "#8C5A2E"]
+  },
+  "bulb1": {
+    "src": "bulb.svg",
+    "bg": "radial-gradient(circle at center, hsl(0deg 0% 100%) 40%, hsl(200deg 15% 87%))",
+    "padding": "1.5rem"
+  },
+  "clock1": {
+    "src": "clock.svg",
+    "bg": "linear-gradient(to top right, hsl(187deg 87% 65%), hsl(187deg 84% 42%))",
+    "pallets": ["#D9B855", "#262323"],
+    "padding": "1.5rem"
+  },
+  "flower1": {
+    "src": "flower.svg"
   }
 }

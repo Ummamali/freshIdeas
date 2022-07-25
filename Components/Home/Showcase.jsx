@@ -5,7 +5,7 @@ export default function Showcase({ title, text }) {
   return (
     <div className="py-10 px-4">
       <div className="text-center max-w-lg mx-auto mb-4">
-        <h1 className="text-3xl sm:text-4xl font-head tracking-wide text-black/80">
+        <h1 className="text-3xl sm:text-4xl font-head tracking-wide text-black/75">
           {title}
         </h1>
         <div className="w-72 h-0.5 bg-primary mx-auto mb-3 brightness-110"></div>
@@ -19,7 +19,7 @@ export default function Showcase({ title, text }) {
           max-width: 40rem;
           margin-left: auto;
           margin-right: auto;
-          background: #d6d6d6;
+          background: #e6e6e6;
           padding-left: 1rem;
           border-radius: 2px;
         }

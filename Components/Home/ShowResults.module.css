@@ -1,6 +1,6 @@
 .singleTile {
   display: grid;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1/1.2;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-template-areas:
@@ -15,7 +15,7 @@
 @media (max-width: 900px) {
   .singleTile {
     grid-template-columns: repeat(2, 1fr);
-    aspect-ratio: 1/2;
+    aspect-ratio: 1/2.3;
     grid-template-rows: repeat(9, 1fr);
     grid-template-areas:
       "a b"
@@ -33,7 +33,7 @@
 @media (max-width: 500px) {
   .singleTile {
     grid-template-columns: repeat(1, 1fr);
-    aspect-ratio: 1/8;
+    aspect-ratio: 1/8.4;
     grid-template-rows: repeat(18, 1fr);
     grid-template-areas:
       "a"

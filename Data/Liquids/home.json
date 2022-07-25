@@ -24,5 +24,15 @@
   },
   "tile": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"],
   "illPath": "/illustrations",
-  "fresh": ["car1", "clouds1", "gears1", "icecream1", "mountains1", "tree1"]
+  "fresh": [
+    "car1",
+    "clouds1",
+    "gears1",
+    "icecream1",
+    "mountains1",
+    "tree1",
+    "bulb1",
+    "clock1",
+    "flower1"
+  ]
 }
