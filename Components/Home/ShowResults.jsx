@@ -9,18 +9,13 @@ const configs = {
   imgPadding: "1rem", // default space around the image
 };
 
-export default function ShowResults({ results, tile, illPath }) {
+export default function ShowResults({ results, tile }) {
   const tiles = [];
   const items = [];
   for (const [i, resItem] of results.entries()) {
     const itemNo = i % tile.length;
     items.push(
-      <SingleResult
-        {...resItem}
-        key={resItem.id}
-        gridArea={tile[itemNo]}
-        illPath={illPath}
-      />
+      <SingleResult {...resItem} key={resItem.id} gridArea={tile[itemNo]} />
     );
     if (items.length === tile.length) {
       const thisItems = [...items];
@@ -50,7 +45,6 @@ function SingleResult({
   src,
   bg,
   gridArea,
-  illPath,
   padding = configs.imgPadding,
   pallets = [],
 }) {
@@ -63,12 +57,7 @@ function SingleResult({
         style={{ background: bg, padding }}
       >
         <div className="w-full h-full relative">
-          <Image
-            alt={name}
-            src={illPath + "/" + src}
-            layout="fill"
-            objectFit="contain"
-          />
+          <Image alt={name} src={src} layout="fill" objectFit="contain" />
         </div>
         <div className="absolute bottom-0 left-0 w-full h-full details opacity-0 transition-opacity flex flex-col items-stretch justify-between p-5">
           <div className="">

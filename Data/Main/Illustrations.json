@@ -1,47 +1,48 @@
 {
   "car1": {
-    "src": "car.svg",
+    "src": "/illustrations/car.svg",
     "bg": "linear-gradient(to top, #222, #555)",
     "pallets": ["#BF2626", "#595959"]
   },
   "clouds1": {
-    "src": "clouds.svg",
+    "src": "/illustrations/clouds.svg",
     "bg": "linear-gradient(to bottom, #bdd4e7 0%, #8693ab 90%)",
     "pallets": ["#B4CBD9", "#8593A6", "#595959"]
   },
   "gears1": {
-    "src": "gears.svg",
+    "src": "/illustrations/gears.svg",
     "bg": "linear-gradient(to bottom, #BFBFBF, #F2F2F2 20%, #BFBFBF 90%)",
     "pallets": ["#158FBF", "#737373", "#404040"],
     "padding": "1.5rem"
   },
   "icecream1": {
-    "src": "icecream.png",
+    "src": "/illustrations/icecream.png",
     "bg": "radial-gradient(circle at center, hsl(199deg 38% 50%), hsl(199deg 58% 60%))",
     "pallets": ["#F2A71B", "#5357A6", "#62C3D9", "#87BF4E", "#F2780C"]
   },
   "mountains1": {
-    "src": "mountains.svg",
+    "src": "/illustrations/mountains.svg",
     "bg": "radial-gradient(circle at center, hsl(31 83% 75% / 1), hsl(31deg 94% 64%))",
     "pallets": ["#A66963", "hsl(31deg 94% 64%)"]
   },
   "tree1": {
-    "src": "tree.svg",
+    "src": "/illustrations/tree.svg",
     "bg": "radial-gradient(circle at center, hsl(210 96% 84% / 1), hsl(204 62% 49% / 1))",
     "pallets": ["#038C33", "#59A8D9", "#8C5A2E"]
   },
   "bulb1": {
-    "src": "bulb.svg",
+    "src": "/illustrations/bulb.svg",
     "bg": "radial-gradient(circle at center, hsl(0deg 0% 100%) 40%, hsl(200deg 15% 87%))",
     "padding": "1.5rem"
   },
   "clock1": {
-    "src": "clock.svg",
+    "src": "/illustrations/clock.svg",
     "bg": "linear-gradient(to top right, hsl(187deg 87% 65%), hsl(187deg 84% 42%))",
     "pallets": ["#D9B855", "#262323"],
     "padding": "1.5rem"
   },
   "flower1": {
-    "src": "flower.svg"
+    "src": "/illustrations/flower.svg",
+    "bg": "linear-gradient(50deg, hsl(265deg 64% 62%), hsl(187deg 74% 76%))"
   }
 }

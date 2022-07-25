@@ -15,11 +15,7 @@ export default function Home({ lqd, preload }) {
         setCurrent={setCategory}
       />
       <Showcase {...lqd.showcase} />
-      <ShowResults
-        results={shownResults}
-        tile={lqd.tile}
-        illPath={lqd.illPath}
-      />
+      <ShowResults results={shownResults} tile={lqd.tile} />
     </>
   );
 }
