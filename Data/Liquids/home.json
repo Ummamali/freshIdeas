@@ -1,38 +1,7 @@
 {
-  "categories": [
-    "Fresh",
-    "Nature",
-    "Abstract",
-    "Patterns",
-    "Architecture",
-    "Design",
-    "Food",
-    "Animals",
-    "Arts",
-    "Business",
-    "Travel",
-    "Wallpapers",
-    "Technology"
-  ],
   "showcase": {
     "title": "Unleash the creative power",
     "text": "Download intuitive and beautiful illustrations for your business, print and digital designs. Get free drawings and shapes!"
   },
-  "cardPresets": {
-    "box": { "colSpan": 1, "rowSpan": 1 },
-    "rect": { "colSpan": 1, "rowSpan": 2 }
-  },
-  "tile": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"],
-  "illPath": "/illustrations",
-  "fresh": [
-    "car1",
-    "clouds1",
-    "gears1",
-    "icecream1",
-    "mountains1",
-    "tree1",
-    "bulb1",
-    "clock1",
-    "flower1"
-  ]
+  "tile": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"]
 }

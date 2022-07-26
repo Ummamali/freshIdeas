@@ -40,7 +40,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
   }
   return (
     <div className="bg-showcaseBg">
-      <div className="max-w-container mx-auto relative">
+      <div className="max-w-container mx-auto relative text-sm">
         {leftArrow && (
           <button
             className="absolute left-0 bg-gradient-to-r from-navbg pr-4 h-full text-white/70 aspect-square flex items-center justify-center hover:text-white"
@@ -61,7 +61,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
         )}
         <div
           className={
-            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3.5 px-2 scroll-smooth " +
+            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3.5 px-4 scroll-smooth " +
             styles.scrollHidden
           }
           onScroll={scrollHandler}

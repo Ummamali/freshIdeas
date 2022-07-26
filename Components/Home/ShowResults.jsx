@@ -10,33 +10,17 @@ const configs = {
 };
 
 export default function ShowResults({ results, tile }) {
-  const tiles = [];
-  const items = [];
-  for (const [i, resItem] of results.entries()) {
-    const itemNo = i % tile.length;
-    items.push(
-      <SingleResult {...resItem} key={resItem.id} gridArea={tile[itemNo]} />
-    );
-    if (items.length === tile.length) {
-      const thisItems = [...items];
-      tiles.push(
-        <div className={styles.singleTile} key={`tile-${tiles.length}`}>
-          {thisItems}
-        </div>
-      );
-      items.length = 0;
-    }
+  const renderTiles = [];
+  for (const singlePage of results) {
+    const thisItems = singlePage.map((item, i) => (
+      <SingleResult {...item} key={item.id} gridArea={tile[i]} />
+    ));
+    renderTiles.push(<div className={styles.singleTile}>{thisItems}</div>);
   }
-  if (items.length > 0) {
-    tiles.push(
-      <div className={styles.singleTile} key={`tile-${tiles.length}`}>
-        {items}
-      </div>
-    );
-  }
+
   return (
     <div className="max-w-container mx-4 sm:mx-6 container:mx-auto">
-      {tiles}
+      {renderTiles}
     </div>
   );
 }
