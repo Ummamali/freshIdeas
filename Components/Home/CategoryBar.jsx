@@ -39,7 +39,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
     }
   }
   return (
-    <div className="bg-showcaseBg">
+    <div className="bg-showcaseBg sticky top-0">
       <div className="max-w-container mx-auto relative text-sm">
         {leftArrow && (
           <button

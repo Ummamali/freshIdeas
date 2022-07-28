@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   return (
-    <nav className="bg-navbg">
+    <nav className="bg-navbg sticky top-0 z-10">
       <div className="max-w-container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/">
           <a className="hover:cursor-pointer flex items-center justify-center">

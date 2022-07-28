@@ -5,6 +5,7 @@ import Showcase from "../Components/Home/Showcase";
 import ShowResults from "../Components/Home/ShowResults";
 import { readFromData } from "../utilCode/serverFuncs";
 import useIncrementalFetch from "../hooks/useIncrementalFetch";
+import Navbar from "../Components/Utils/Navbar";
 
 export default function Home({ lqd, preload, cats }) {
   const router = useRouter();
@@ -13,28 +14,49 @@ export default function Home({ lqd, preload, cats }) {
   const {
     loadMore,
     data: results,
-    err,
-  } = useIncrementalFetch("/api/illustration", { cat: category }, 12);
+    loading,
+  } = useIncrementalFetch("/api/illustration", { cat: category }, 12, {
+    initialSize: 1,
+  });
   useEffect(() => {
     if (Array.from(Object.keys(cats.items)).includes(router.query.cat)) {
       setCategory(router.query.cat);
     }
   }, [cats.items, router.query.cat]);
+
+  function scrollHandler(e) {
+    const target = e.target;
+    const fromBottom =
+      target.scrollHeight - (target.clientHeight + target.scrollTop);
+    if (fromBottom < 2) {
+      loadMore();
+    }
+  }
+
   return (
-    <>
-      <CategoryBar
-        categories={Array.from(Object.keys(cats.items))}
-        current={category}
-        setCurrent={setCategory}
-      />
-      <Showcase {...lqd.showcase} />
-      {results && <ShowResults results={results} tile={lqd.tile} />}
-      <button onClick={loadMore}>LOad MOre</button>
-    </>
+    <div className="w-screen h-screen flex flex-col items-stretch">
+      <header>
+        <Navbar />
+        <CategoryBar
+          categories={Array.from(Object.keys(cats.items))}
+          current={category}
+          setCurrent={setCategory}
+        />
+      </header>
+      <main className="grow overflow-y-scroll" onScroll={scrollHandler}>
+        <Showcase {...lqd.showcase} />
+        {results && <ShowResults results={results} tile={lqd.tile} />}
+        {loading ? (
+          <p className="text-center animate-pulse text-black/90 font-light my-3">
+            Loading......
+          </p>
+        ) : null}
+      </main>
+    </div>
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const lqd = await readFromData("Liquids", "home.json");
   const illustrations = await readFromData("Main", "Illustrations.json");
   const cats = await readFromData("Main", "Categories.json");

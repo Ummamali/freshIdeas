@@ -5,7 +5,12 @@ async function fetcher(url) {
   return await res.json();
 }
 
-export default function useIncrementalFetch(url, params = {}, count = 10) {
+export default function useIncrementalFetch(
+  url,
+  params = {},
+  count = 10,
+  options = {}
+) {
   function getKey(idx, prev) {
     const start = idx * count;
     if (idx !== 0 && prev.length < count) {
@@ -17,13 +22,20 @@ export default function useIncrementalFetch(url, params = {}, count = 10) {
     );
   }
 
-  const { data, error, setSize, size } = useSWRInfinite(getKey, fetcher, {
-    initialSize: 0,
-    revalidateFirstPage: false,
-  });
+  const { data, error, setSize, isValidating } = useSWRInfinite(
+    getKey,
+    fetcher,
+    {
+      initialSize: 0,
+      revalidateFirstPage: false,
+      ...options,
+    }
+  );
+
+  const loading = isValidating;
 
   function loadMore() {
-    setSize(size + 1);
+    setSize((prev) => prev + 1);
   }
-  return { data, error, loadMore };
+  return { data, error, loadMore, loading };
 }

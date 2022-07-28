@@ -15,7 +15,9 @@ export default function ShowResults({ results, tile }) {
     const thisItems = singlePage.map((item, i) => (
       <SingleResult {...item} key={item.id} gridArea={tile[i]} />
     ));
-    renderTiles.push(<div className={styles.singleTile}>{thisItems}</div>);
+    if (thisItems.length > 0) {
+      renderTiles.push(<div className={styles.singleTile}>{thisItems}</div>);
+    }
   }
 
   return (
