@@ -6,10 +6,15 @@ import ShowResults from "../Components/Home/ShowResults";
 import { readFromData } from "../utilCode/serverFuncs";
 import useIncrementalFetch from "../hooks/useIncrementalFetch";
 import Navbar from "../Components/Utils/Navbar";
+import Model from "../Components/Utils/Model";
+import FullScreenDetails from "../Components/Home/FullScreenDetails";
+import Artwork from "../Components/Home/Artwork";
 
 export default function Home({ lqd, preload, cats }) {
   const router = useRouter();
   const [category, setCategory] = useState(cats.first);
+
+  const [details, setDetails] = useState(null);
 
   const {
     loadMore,
@@ -45,8 +50,19 @@ export default function Home({ lqd, preload, cats }) {
       </header>
       <main className="grow overflow-y-scroll" onScroll={scrollHandler}>
         <Showcase {...lqd.showcase} />
-        <ShowResults results={results} tile={lqd.tile} isLoading={loading} />
+        <ShowResults
+          results={results}
+          tile={lqd.tile}
+          isLoading={loading}
+          setDetails={setDetails}
+        />
       </main>
+      {details && (
+        <FullScreenDetails
+          close={setDetails.bind(null, null)}
+          artwork={details}
+        />
+      )}
     </div>
   );
 }
