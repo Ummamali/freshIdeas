@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
+import Icon from "./Icon";
 
 export default function SearchBar({
   search,
   className,
   placeholder = "Search illustrations here...",
   styledJsx = "",
+  searchIcon = <Icon name="search_dark" className="opacity-80 w-7 h-7" />,
 }) {
   const ref = useRef();
   return (
@@ -17,11 +19,7 @@ export default function SearchBar({
         "flex items-center space-x-4 border-b border-white/25 " + className
       }
     >
-      <label htmlFor="searchBar">
-        <span className="material-symbols-outlined text-white/50 translate-y-0.5">
-          search
-        </span>
-      </label>
+      <label htmlFor="searchBar">{searchIcon}</label>
       <input
         type="text"
         ref={ref}

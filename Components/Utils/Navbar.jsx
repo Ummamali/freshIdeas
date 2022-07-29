@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 import logoDark from "../../public/imgs/logoDark.svg";
+import Icon from "./Icon";
 import SearchBar from "./SearchBar";
 
 export default function Navbar() {
@@ -23,9 +24,10 @@ export default function Navbar() {
         {searchShowing ? (
           <SearchBar
             className="mainEl"
+            searchIcon={<Icon name="search_light" className="opacity-70" />}
             styledJsx={`
           .mainEl{
-            padding-bottom: 0.1rem;
+            padding-bottom: 0.2rem;
           }
           
           .mainEl input{
@@ -34,8 +36,11 @@ export default function Navbar() {
         `}
           />
         ) : (
-          <button className="flex items-center justify-center hover:text-white/70 text-white/50">
-            <span className="material-symbols-outlined ">search</span>
+          <button
+            className="flex items-center justify-center opacity-80 hover:opacity-100"
+            onClick={setSearchShowing.bind(null, true)}
+          >
+            <Icon name="search_light" />
           </button>
         )}
       </div>

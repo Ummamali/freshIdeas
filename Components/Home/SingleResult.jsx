@@ -24,7 +24,7 @@ export default function SingleResult({
       onClick={(e) => {
         console.log(e.target.dataset);
         if (e.target.dataset.details === "yes") {
-          setDetails({ src, bg, pallets, id, name });
+          setDetails({ src, bg, pallets, id, name, type });
         }
       }}
     >

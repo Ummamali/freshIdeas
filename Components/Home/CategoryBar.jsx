@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import styles from "../../styles/hiddenScroll.module.css";
+import Icon from "../Utils/Icon";
 
 const scrollJump = 150;
 
@@ -43,7 +44,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
       <div className="max-w-container mx-auto relative text-sm">
         {leftArrow && (
           <button
-            className="absolute left-0 bg-gradient-to-r from-navbg pr-4 h-full text-white/70 aspect-square flex items-center justify-center hover:text-white"
+            className="absolute left-0 bg-gradient-to-r from-navbg via-navbg/60 h-full w-16 pl-3 hover:brightness-110"
             onClick={(e) => {
               const tar = barRef.current;
               const leftDist = getDistance(tar)[0];
@@ -54,9 +55,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
               }
             }}
           >
-            <span className="material-symbols-outlined text-4xl">
-              chevron_left
-            </span>
+            <Icon name="chevron_left_light" className="opacity-60" />
           </button>
         )}
         <div
@@ -85,7 +84,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
         </div>
         {rightArrow && (
           <button
-            className="absolute right-0 top-0 bg-gradient-to-l from-navbg h-full text-white/70 aspect-square flex items-center justify-center hover:text-white"
+            className="absolute right-0 top-0 bg-gradient-to-l from-navbg via-navbg/70 h-full w-16 pr-3 hover:brightness-110"
             onClick={(e) => {
               const tar = barRef.current;
               const leftDist = getDistance(tar)[1];
@@ -97,9 +96,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
               }
             }}
           >
-            <span className="material-symbols-outlined text-4xl">
-              chevron_right
-            </span>
+            <Icon name="chevron_right_light" className="opacity-60 ml-auto" />
           </button>
         )}
       </div>
