@@ -28,7 +28,7 @@ export default function Home({ lqd, preload, cats }) {
     const target = e.target;
     const fromBottom =
       target.scrollHeight - (target.clientHeight + target.scrollTop);
-    if (fromBottom < 2) {
+    if (fromBottom < 2 && !loading) {
       loadMore();
     }
   }
@@ -45,12 +45,7 @@ export default function Home({ lqd, preload, cats }) {
       </header>
       <main className="grow overflow-y-scroll" onScroll={scrollHandler}>
         <Showcase {...lqd.showcase} />
-        {results && <ShowResults results={results} tile={lqd.tile} />}
-        {loading ? (
-          <p className="text-center animate-pulse text-black/90 font-light my-3">
-            Loading......
-          </p>
-        ) : null}
+        <ShowResults results={results} tile={lqd.tile} isLoading={loading} />
       </main>
     </div>
   );
