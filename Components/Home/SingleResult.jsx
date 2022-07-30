@@ -28,14 +28,13 @@ export default function SingleResult({
         }
       }}
     >
-      <div className="w-full h-full relative">
+      <div className="w-full h-full relative rounded md:rounded-sm overflow-hidden">
         <Artwork
           src={src}
           padding={padding}
           background={bg}
           className="w-full h-full"
         />
-
         <div
           className="absolute bottom-0 left-0 w-full h-full details opacity-0 transition-opacity flex flex-col items-stretch justify-between p-5"
           data-details="yes"

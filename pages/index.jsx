@@ -48,7 +48,10 @@ export default function Home({ lqd, preload, cats }) {
           setCurrent={setCategory}
         />
       </header>
-      <main className="grow overflow-y-scroll" onScroll={scrollHandler}>
+      <main
+        className="grow overflow-y-scroll myScrollbar"
+        onScroll={scrollHandler}
+      >
         <Showcase {...lqd.showcase} />
         <ShowResults
           results={results}

@@ -24,11 +24,6 @@ export default function Showcase({ title, text }) {
           border-radius: 2px;
         }
 
-        .rootEl label span{
-          color: hsl(0 0% 50% / 1);
-          font-size: 1.8rem;
-        }
-
         .rootEl input::placeholder{
           color: hsl(0 0% 40% / 1);
           font-size: 1rem;
@@ -40,6 +35,7 @@ export default function Showcase({ title, text }) {
           letter-spacing: 0.2px;
           padding: 1rem 0rem;
         }
+
 
         @media (max-width: 780px){
           .rootEl input{

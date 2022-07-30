@@ -44,7 +44,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
       <div className="max-w-container mx-auto relative text-sm">
         {leftArrow && (
           <button
-            className="absolute left-0 bg-gradient-to-r from-navbg via-navbg/60 h-full w-16 pl-3 hover:brightness-110"
+            className="absolute left-0 bg-gradient-to-r from-navbg via-navbg/60 h-full w-16 pl-3 hover:brightness-110 z-10"
             onClick={(e) => {
               const tar = barRef.current;
               const leftDist = getDistance(tar)[0];
@@ -84,7 +84,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
         </div>
         {rightArrow && (
           <button
-            className="absolute right-0 top-0 bg-gradient-to-l from-navbg via-navbg/70 h-full w-16 pr-3 hover:brightness-110"
+            className="absolute right-0 top-0 bg-gradient-to-l from-navbg via-navbg/70 h-full w-16 pr-3 hover:brightness-110 z-10"
             onClick={(e) => {
               const tar = barRef.current;
               const leftDist = getDistance(tar)[1];

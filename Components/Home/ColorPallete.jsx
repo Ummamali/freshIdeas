@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import Icon from "../Utils/Icon";
+import styles from "./ColorPallete.module.css";
 
-export default function ColorPallete({ color, className }) {
+export default function ColorPallete({ color, className = "" }) {
   const [copied, setCopied] = useState(false);
 
   function copyToClip() {
@@ -10,34 +12,16 @@ export default function ColorPallete({ color, className }) {
   return (
     <>
       <button
-        className={"flex items-center justify-center " + className}
+        className={`flex items-center justify-center p-[0.2rem] rounded-full ${className} ${styles.pallete}`}
         style={{ background: color }}
         onClick={copyToClip}
         onMouseLeave={setCopied.bind(null, false)}
       >
-        {copied ? (
-          <span className="material-symbols-outlined">done</span>
-        ) : (
-          <span className="material-symbols-outlined">content_copy</span>
-        )}
+        <Icon
+          name={copied ? "tick_dark" : "content_copy_dark"}
+          className={"w-4 h-4 opacity-0  " + styles.icon}
+        />
       </button>
-      <style jsx>{`
-        button span {
-          font-size: 1rem;
-          opacity: 0;
-          color: rgba(0, 0, 0, 0.8);
-        }
-
-        button {
-          width: 1.4rem;
-          height: 1.4rem;
-          border-radius: 100%;
-        }
-
-        button:hover span {
-          opacity: 1;
-        }
-      `}</style>
     </>
   );
 }
