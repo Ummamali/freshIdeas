@@ -4,7 +4,7 @@ export function Backdrop({ className, close }) {
   return (
     <div
       className={
-        "absolute top-0 left-0 w-full h-full bg-black/60 hover:cursor-pointer " +
+        "absolute top-0 left-0 w-full h-full bg-black/70 backdrop-blur-sm hover:cursor-pointer " +
         className
       }
       onClick={close}

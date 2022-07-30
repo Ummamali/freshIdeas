@@ -15,9 +15,8 @@ export default function ShowResults({ results, tile, isLoading, setDetails }) {
   for (const singlePage of resultsIttr) {
     const thisItems = singlePage.map((item, i) => (
       <SingleResult
-        {...item}
+        artwork={item}
         key={item.id}
-        id={item.id}
         gridArea={tile[i]}
         setDetails={setDetails}
       />

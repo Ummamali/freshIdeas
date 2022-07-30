@@ -37,12 +37,18 @@
   },
   "clock1": {
     "src": "/illustrations/clock.svg",
-    "bg": "linear-gradient(to top right, hsl(187deg 87% 65%), hsl(187deg 84% 42%))",
+    "bg": "linear-gradient(45deg, transparent, transparent 15%, rgba(0,0,0,0.2) 15%, rgba(0,0,0,0.2) 25%, transparent 25%), linear-gradient(to top right, hsl(187deg 87% 65%), hsl(187deg 84% 42%))",
     "pallets": ["#D9B855", "#262323"],
     "padding": "1.5rem"
   },
   "flower1": {
     "src": "/illustrations/flower.svg",
-    "bg": "linear-gradient(50deg, hsl(265deg 64% 62%), hsl(187deg 74% 76%))"
+    "bg": "linear-gradient(50deg, hsl(265deg 64% 62%), hsl(187deg 74% 76%))",
+    "title": "Spring Flower"
+  },
+  "settingSun1": {
+    "src": "/illustrations/sun.png",
+    "bg": "linear-gradient(to top, hsl(14deg 90% 43% / 10%), transparent), url(/illustrations/backgrounds/sun.svg) center center / cover",
+    "title": "Sun in dark"
   }
 }

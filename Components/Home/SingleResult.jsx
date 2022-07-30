@@ -6,17 +6,11 @@ import ColorPallete from "./ColorPallete";
 
 import { configs } from "./ShowResults";
 
-export default function SingleResult({
-  id,
-  src,
-  bg,
-  gridArea,
-  setDetails,
-  padding = configs.imgPadding,
-  pallets = [],
-}) {
-  let [name, type] = getFilename(src).split(".");
-  name = titleIt(name);
+export default function SingleResult({ artwork, gridArea, setDetails }) {
+  let [fName, type] = getFilename(artwork.src).split(".");
+  const { src, bg, padding = configs.imgPadding, pallets = [] } = artwork;
+  let { title = fName } = artwork;
+  title = titleIt(title);
   return (
     <div
       className="relative w-full h-full p-2 card "
@@ -24,7 +18,7 @@ export default function SingleResult({
       onClick={(e) => {
         console.log(e.target.dataset);
         if (e.target.dataset.details === "yes") {
-          setDetails({ src, bg, pallets, id, name, type });
+          setDetails({ ...artwork, pallets, type, title });
         }
       }}
     >
@@ -53,14 +47,14 @@ export default function SingleResult({
           </div>
           <div className="flex items-center justify-between">
             <div className="leading-none">
-              <h3 className="text-white/80">{name}</h3>
+              <h3 className="text-white/80">{title}</h3>
               <small className="text-white/70 text-xs italic">
                 {"." + type}
               </small>
             </div>
             <a
               href={src}
-              download={name + "." + type}
+              download={title + "." + type}
               style={{
                 backgroundColor: pallets.length > 0 ? pallets[0] : "#2F8F4B",
               }}

@@ -2,6 +2,7 @@
   "first": "Fresh",
   "items": {
     "Fresh": [
+      "settingSun1",
       "car1",
       "clouds1",
       "gears1",
@@ -21,7 +22,7 @@
       "clock1",
       "flower1"
     ],
-    "Nature": [],
+    "Nature": ["settingSun1", "mountains1"],
     "Abstract": [],
     "Patterns": [],
     "Architecture": [],

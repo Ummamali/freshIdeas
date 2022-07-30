@@ -21,7 +21,7 @@ export default function FullScreenDetails({ close, artwork }) {
           <div className="flex items-start justify-between">
             <div className="leading-[0.1]">
               <h3 className="text-2xl font-light text-black/85">
-                {artwork.name}
+                {artwork.title}
               </h3>
               <small className="ml-2 text-black/70 italic">
                 .{artwork.type}
