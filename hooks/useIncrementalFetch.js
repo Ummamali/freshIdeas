@@ -14,7 +14,6 @@ export default function useIncrementalFetch(
   function getKey(idx, prev) {
     const start = idx * count;
     if (idx !== 0 && prev.length < count) {
-      console.warn("Producer exhausted! Cancelling request");
       return null;
     }
     return (
@@ -22,17 +21,14 @@ export default function useIncrementalFetch(
     );
   }
 
-  const { data, error, setSize, isValidating } = useSWRInfinite(
-    getKey,
-    fetcher,
-    {
-      initialSize: 0,
-      revalidateFirstPage: false,
-      ...options,
-    }
-  );
+  const { data, error, setSize, size } = useSWRInfinite(getKey, fetcher, {
+    initialSize: 0,
+    revalidateFirstPage: false,
+    ...options,
+  });
 
-  const loading = isValidating;
+  const lastElem = data.length > 0 ? data[data.length - 1] : [];
+  const loading = data.length < size && lastElem.length === count;
 
   function loadMore() {
     setSize((prev) => prev + 1);

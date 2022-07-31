@@ -11,8 +11,7 @@ export const configs = {
 
 export default function ShowResults({ results, tile, isLoading, setDetails }) {
   const renderTiles = [];
-  const resultsIttr = results ? results : [];
-  for (const singlePage of resultsIttr) {
+  for (const [i, singlePage] of results.entries()) {
     const thisItems = singlePage.map((item, i) => (
       <SingleResult
         artwork={item}
@@ -22,12 +21,16 @@ export default function ShowResults({ results, tile, isLoading, setDetails }) {
       />
     ));
     if (thisItems.length > 0) {
-      renderTiles.push(<div className={styles.singleTile}>{thisItems}</div>);
+      renderTiles.push(
+        <div className={styles.singleTile} key={i}>
+          {thisItems}
+        </div>
+      );
     }
   }
 
   if (isLoading) {
-    renderTiles.push(<LoadingTile tile={tile} />);
+    renderTiles.push(<LoadingTile tile={tile} key="loadingTile" />);
   }
 
   const emptyMsg = (

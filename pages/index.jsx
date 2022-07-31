@@ -1,85 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import CategoryBar from "../Components/Home/CategoryBar";
-import Showcase from "../Components/Home/Showcase";
-import ShowResults from "../Components/Home/ShowResults";
-import { readFromData } from "../utilCode/serverFuncs";
-import useIncrementalFetch from "../hooks/useIncrementalFetch";
-import Navbar from "../Components/Utils/Navbar";
-import Model from "../Components/Utils/Model";
-import FullScreenDetails from "../Components/Home/FullScreenDetails";
-import Artwork from "../Components/Home/Artwork";
+import HomeScreen from "../Components/Home/HomeScreen";
+import { loadFirstTiles, readFromData } from "../utilCode/serverFuncs";
 
-export default function Home({ lqd, preload, cats }) {
-  const router = useRouter();
-  const [category, setCategory] = useState(cats.first);
-
-  const [details, setDetails] = useState(null);
-
-  const {
-    loadMore,
-    data: results,
-    loading,
-  } = useIncrementalFetch("/api/illustration", { cat: category }, 12, {
-    initialSize: 1,
-  });
-  useEffect(() => {
-    if (Array.from(Object.keys(cats.items)).includes(router.query.cat)) {
-      setCategory(router.query.cat);
-    }
-  }, [cats.items, router.query.cat]);
-
-  function scrollHandler(e) {
-    const target = e.target;
-    const fromBottom =
-      target.scrollHeight - (target.clientHeight + target.scrollTop);
-    if (fromBottom < 2 && !loading) {
-      loadMore();
-    }
-  }
-
+export default function Home(props) {
   return (
-    <div className="w-screen h-screen flex flex-col items-stretch">
-      <header>
-        <Navbar />
-        <CategoryBar
-          categories={Array.from(Object.keys(cats.items))}
-          current={category}
-          setCurrent={setCategory}
-        />
-      </header>
-      <main
-        className="grow overflow-y-scroll myScrollbar"
-        onScroll={scrollHandler}
-      >
-        <Showcase {...lqd.showcase} />
-        <ShowResults
-          results={results}
-          tile={lqd.tile}
-          isLoading={loading}
-          setDetails={setDetails}
-        />
-      </main>
-      {details && (
-        <FullScreenDetails
-          close={setDetails.bind(null, null)}
-          artwork={details}
-        />
-      )}
-    </div>
+    <HomeScreen {...props} preload={props.initArtworks[props.currentCat]} />
   );
 }
 
 export async function getStaticProps() {
   const lqd = await readFromData("Liquids", "home.json");
-  const illustrations = await readFromData("Main", "Illustrations.json");
   const cats = await readFromData("Main", "Categories.json");
-  for (const [key, val] of Object.entries(cats.items)) {
-    cats.items[key] = val.slice(0, lqd.tile.length);
-  }
-  const images = cats.items[cats.first];
-  const preload = images.map((item) => ({ ...illustrations[item], id: item }));
+  const initArtworks = await loadFirstTiles(lqd.tile.length);
   return {
-    props: { lqd, preload, cats },
+    props: { lqd, initArtworks, cats, currentCat: cats.first },
   };
 }

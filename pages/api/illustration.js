@@ -2,7 +2,7 @@ import { readFromData } from "../../utilCode/serverFuncs";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
-    // await new Promise((res) => setTimeout(res, 5000));
+    await new Promise((res) => setTimeout(res, 5000));
     const illustrations = await readFromData("Main", "Illustrations.json");
     const cats = await readFromData("Main", "Categories.json");
     const ills = cats.items[req.query.cat].slice(

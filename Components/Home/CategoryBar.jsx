@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
+import { useRouter } from "next/router";
+
 import styles from "../../styles/hiddenScroll.module.css";
 import Icon from "../Utils/Icon";
 
@@ -10,6 +12,8 @@ export default function CategoryBar({ categories, current, setCurrent }) {
   const [rightArrow, setrightArrow] = useState(false);
 
   const barRef = useRef();
+
+  const router = useRouter();
 
   function getDistance(elem) {
     return [
@@ -76,7 +80,7 @@ export default function CategoryBar({ categories, current, setCurrent }) {
                   ? " text-primary brightness-125"
                   : "")
               }
-              onClick={() => setCurrent(cat)}
+              onClick={() => router.push("/cat/" + cat)}
             >
               {cat}
             </button>

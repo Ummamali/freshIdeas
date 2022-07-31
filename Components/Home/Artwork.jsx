@@ -6,7 +6,7 @@ export default function Artwork({ src, background, padding, className }) {
     <div className={className}>
       <div style={{ padding, background }} className="w-full h-full">
         <div className="w-full h-full relative">
-          <Image alt="" src={src} layout="fill" objectFit="contain" />
+          <Image alt="" src={src} layout="fill" objectFit="contain" priority />
         </div>
       </div>
     </div>
