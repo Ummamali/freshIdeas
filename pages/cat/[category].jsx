@@ -12,10 +12,6 @@ export async function getStaticProps(context) {
   const { category } = context.params;
   const cats = await readFromData("Main", "Categories.json");
 
-  if (category === cats.first) {
-    return { redirect: { destination: "/", permanent: true } };
-  }
-
   const lqd = await readFromData("Liquids", "home.json");
   const initArtworks = await loadFirstTiles(lqd.tile.length);
   return {
