@@ -34,10 +34,10 @@ export default function ShowResults({ results, tile, isLoading, setDetails }) {
   }
 
   const emptyMsg = (
-    <p className="font-light text-black/80 flex items-center justify-center space-x-2">
+    <div className="font-light text-black/80 flex items-center justify-center space-x-2">
       <Icon name="sad_face" className="opacity-80" />
       <span className="text-sm">No Illustrations found!</span>
-    </p>
+    </div>
   );
 
   return (

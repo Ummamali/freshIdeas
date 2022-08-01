@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     await new Promise((res) => setTimeout(res, 5000));
     const illustrations = await readFromData("Main", "Illustrations.json");
     const cats = await readFromData("Main", "Categories.json");
-    const ills = cats.items[req.query.cat].slice(
+    const ills = cats[req.query.cat].slice(
       req.query.start,
       req.query.start + req.query.count
     );

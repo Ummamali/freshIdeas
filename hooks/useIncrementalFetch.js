@@ -27,8 +27,9 @@ export default function useIncrementalFetch(
     ...options,
   });
 
-  const lastElem = data.length > 0 ? data[data.length - 1] : [];
-  const loading = data.length < size && lastElem.length === count;
+  const hasExhausted =
+    data.length > 0 ? data[data.length - 1].length < count : false;
+  const loading = data.length < size && !hasExhausted;
 
   function loadMore() {
     setSize((prev) => prev + 1);

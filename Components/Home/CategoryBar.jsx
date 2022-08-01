@@ -5,9 +5,12 @@ import { useRouter } from "next/router";
 import styles from "../../styles/hiddenScroll.module.css";
 import Icon from "../Utils/Icon";
 
+import lqd from "../../Data/Liquids/home";
+import Link from "next/link";
+
 const scrollJump = 150;
 
-export default function CategoryBar({ categories, current, setCurrent }) {
+export default function CategoryBar({ current }) {
   const [leftArrow, setleftArrow] = useState(false);
   const [rightArrow, setrightArrow] = useState(false);
 
@@ -70,20 +73,20 @@ export default function CategoryBar({ categories, current, setCurrent }) {
           onScroll={scrollHandler}
           ref={barRef}
         >
-          {categories.map((cat, i) => (
-            <button
-              key={cat}
-              className={
-                "hover:text-white whitespace-nowrap " +
-                (current === cat ? "text-white/90 scale-105" : "") +
-                (current === cat && i === 0
-                  ? " text-primary brightness-125"
-                  : "")
-              }
-              onClick={() => router.push("/cat/" + cat)}
-            >
-              {cat}
-            </button>
+          {lqd.categories.map((cat, i) => (
+            <Link key={cat} href={i === 0 ? "/" : `/cat/${cat}`}>
+              <a
+                className={`hover:text-white whitespace-nowrap ${
+                  current === cat ? "text-white/90 scale-105" : ""
+                } ${
+                  current === cat && i === 0
+                    ? " text-primary brightness-125 scale-105 hover:text-primary"
+                    : ""
+                }`}
+              >
+                {cat}
+              </a>
+            </Link>
           ))}
         </div>
         {rightArrow && (

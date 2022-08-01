@@ -1,5 +1,10 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { mutate } from "swr";
 import useIncrementalFetch from "../../hooks/useIncrementalFetch";
+
+// Liquid for this Component
+import lqd from "../../Data/Liquids/home";
 
 import Navbar from "../Utils/Navbar";
 import CategoryBar from "./CategoryBar";
@@ -7,17 +12,24 @@ import FullScreenDetails from "./FullScreenDetails";
 import Showcase from "./Showcase";
 import ShowResults from "./ShowResults";
 
-export default function HomeScreen({ lqd, preload, cats, currentCat }) {
+export default function HomeScreen({ preload, currentCat }) {
   const [details, setDetails] = useState(null);
+
+  const router = useRouter();
 
   const {
     loadMore,
     data: results,
     loading,
-  } = useIncrementalFetch("/api/illustration", { cat: currentCat }, 12, {
-    initialSize: 1,
-    fallbackData: [preload],
-  });
+  } = useIncrementalFetch(
+    "/api/illustration",
+    { cat: currentCat },
+    lqd.tile.length,
+    {
+      initialSize: 1,
+      fallbackData: [preload],
+    }
+  );
 
   function scrollHandler(e) {
     const target = e.target;
@@ -32,10 +44,7 @@ export default function HomeScreen({ lqd, preload, cats, currentCat }) {
     <div className="w-screen h-screen flex flex-col items-stretch">
       <header>
         <Navbar />
-        <CategoryBar
-          categories={Array.from(Object.keys(cats.items))}
-          current={currentCat}
-        />
+        <CategoryBar current={currentCat} />
       </header>
       <main
         className="grow overflow-y-scroll myScrollbar"

@@ -1,5 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
+import lqd from "../Data/Liquids/home";
 
 export async function readFromData(...filePath) {
   const fullPath = path.join(process.cwd(), "Data", ...filePath);
@@ -7,8 +8,9 @@ export async function readFromData(...filePath) {
   return await JSON.parse(fileContent);
 }
 
-export async function loadFirstTiles(tileSize, category = "") {
-  const cats = (await readFromData("Main", "Categories.json")).items;
+export async function loadFirstTiles(category = "") {
+  const tileSize = lqd.tile.length;
+  const cats = await readFromData("Main", "Categories.json");
   const illustrations = await readFromData("Main", "Illustrations.json");
   const mapper = (id) => ({ ...illustrations[id], id });
   if (category !== "") {

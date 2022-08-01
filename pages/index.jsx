@@ -1,17 +1,17 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import HomeScreen from "../Components/Home/HomeScreen";
-import { loadFirstTiles, readFromData } from "../utilCode/serverFuncs";
+import lqd from "../Data/Liquids/home";
+import { loadFirstTiles } from "../utilCode/serverFuncs";
 
 export default function Home(props) {
-  return (
-    <HomeScreen {...props} preload={props.initArtworks[props.currentCat]} />
-  );
+  return <HomeScreen {...props} />;
 }
 
 export async function getStaticProps() {
-  const lqd = await readFromData("Liquids", "home.json");
-  const cats = await readFromData("Main", "Categories.json");
-  const initArtworks = await loadFirstTiles(lqd.tile.length);
+  const currentCat = lqd.categories[0];
+  const preload = await loadFirstTiles(currentCat);
   return {
-    props: { lqd, initArtworks, cats, currentCat: cats.first },
+    props: { preload, currentCat },
   };
 }

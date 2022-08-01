@@ -1,29 +1,24 @@
 import React from "react";
 import HomeScreen from "../../Components/Home/HomeScreen";
-import { loadFirstTiles, readFromData } from "../../utilCode/serverFuncs";
+import lqd from "../../Data/Liquids/home";
+import { loadFirstTiles } from "../../utilCode/serverFuncs";
 
 export default function CategoryHome(props) {
-  return (
-    <HomeScreen {...props} preload={props.initArtworks[props.currentCat]} />
-  );
+  return <HomeScreen {...props} />;
 }
 
-export async function getStaticProps(context) {
-  const { category } = context.params;
-  const cats = await readFromData("Main", "Categories.json");
-
-  const lqd = await readFromData("Liquids", "home.json");
-  const initArtworks = await loadFirstTiles(lqd.tile.length);
+export async function getStaticProps({ params }) {
+  const { category: currentCat } = params;
+  const preload = await loadFirstTiles(currentCat);
   return {
-    props: { lqd, initArtworks, cats, currentCat: category },
+    props: { currentCat, preload },
   };
 }
 
 export async function getStaticPaths() {
-  const prerenderCats = (await readFromData("Liquids", "home.json"))
-    .prerenderCats;
+  // We prerender all categories there are present
   return {
-    paths: prerenderCats.map((category) => ({
+    paths: lqd.categories.slice(1).map((category) => ({
       params: { category },
     })),
     fallback: false,
