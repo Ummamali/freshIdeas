@@ -2,11 +2,16 @@ import Image from "next/image";
 import { getFilename, titleIt } from "../../utilCode/neutralFuncs";
 import Artwork from "./Artwork";
 
+import { useDispatch } from "react-redux";
+
 import ColorPallete from "./ColorPallete";
 
 import { configs } from "./ShowResults";
+import { useRouter } from "next/router";
 
-export default function SingleResult({ artwork, gridArea, setDetails }) {
+export default function SingleResult({ artwork, gridArea }) {
+  const router = useRouter();
+
   let [fName, type] = getFilename(artwork.src).split(".");
   const { src, bg, padding = configs.imgPadding, pallets = [] } = artwork;
   let { title = fName } = artwork;
@@ -18,7 +23,14 @@ export default function SingleResult({ artwork, gridArea, setDetails }) {
       onClick={(e) => {
         console.log(e.target.dataset);
         if (e.target.dataset.details === "yes") {
-          setDetails({ ...artwork, pallets, type, title });
+          router.push(
+            {
+              pathname: router.pathname,
+              query: { ...router.query, fll: artwork.id },
+            },
+            null,
+            { shallow: true }
+          );
         }
       }}
     >

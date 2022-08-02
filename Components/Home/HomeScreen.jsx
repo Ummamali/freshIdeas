@@ -1,6 +1,4 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { mutate } from "swr";
+import { useSelector, useDispatch } from "react-redux";
 import useIncrementalFetch from "../../hooks/useIncrementalFetch";
 
 // Liquid for this Component
@@ -11,12 +9,18 @@ import CategoryBar from "./CategoryBar";
 import FullScreenDetails from "./FullScreenDetails";
 import Showcase from "./Showcase";
 import ShowResults from "./ShowResults";
+import { useEffect } from "react";
+import {
+  artworksActions,
+  loadArtworks,
+  requestArtwork,
+} from "../../store/artworksSlice";
+import { useRouter } from "next/router";
 
 export default function HomeScreen({ preload, currentCat }) {
-  const [details, setDetails] = useState(null);
-
   const router = useRouter();
-
+  const preloadedCats = useSelector((state) => state.artworks.preloadedCats);
+  const dispatch = useDispatch();
   const {
     loadMore,
     data: results,
@@ -30,6 +34,13 @@ export default function HomeScreen({ preload, currentCat }) {
       fallbackData: [preload],
     }
   );
+
+  useEffect(() => {
+    if (!preloadedCats.includes(currentCat)) {
+      dispatch(loadArtworks(preload));
+      dispatch(artworksActions.catPreloaded(currentCat));
+    }
+  }, []);
 
   function scrollHandler(e) {
     const target = e.target;
@@ -51,19 +62,9 @@ export default function HomeScreen({ preload, currentCat }) {
         onScroll={scrollHandler}
       >
         <Showcase {...lqd.showcase} />
-        <ShowResults
-          results={results}
-          tile={lqd.tile}
-          isLoading={loading}
-          setDetails={setDetails}
-        />
+        <ShowResults results={results} tile={lqd.tile} isLoading={loading} />
       </main>
-      {details && (
-        <FullScreenDetails
-          close={setDetails.bind(null, null)}
-          artwork={details}
-        />
-      )}
+      {router.query.fll && <FullScreenDetails />}
     </div>
   );
 }

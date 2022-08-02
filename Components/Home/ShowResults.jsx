@@ -9,16 +9,11 @@ export const configs = {
   imgPadding: "1rem", // default space around the image
 };
 
-export default function ShowResults({ results, tile, isLoading, setDetails }) {
+export default function ShowResults({ results, tile, isLoading }) {
   const renderTiles = [];
   for (const [i, singlePage] of results.entries()) {
     const thisItems = singlePage.map((item, i) => (
-      <SingleResult
-        artwork={item}
-        key={item.id}
-        gridArea={tile[i]}
-        setDetails={setDetails}
-      />
+      <SingleResult artwork={item} key={item.id} gridArea={tile[i]} />
     ));
     if (thisItems.length > 0) {
       renderTiles.push(

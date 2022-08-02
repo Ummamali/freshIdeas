@@ -1,11 +1,27 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import Image from "next/image";
 import React from "react";
 import Icon from "../Utils/Icon";
 import Model from "../Utils/Model";
 import Artwork from "./Artwork";
 import ColorPallete from "./ColorPallete";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
-export default function FullScreenDetails({ close, artwork }) {
+export default function FullScreenDetails() {
+  const router = useRouter();
+  const artworkId = router.query.fll;
+  const artwork = useSelector((store) => store.artworks.loaded[artworkId]);
+
+  const { data, err } = useSWR(
+    () =>
+      typeof artwork === "undefined"
+        ? `/singleIllustration?id=${artworkId}`
+        : null,
+    (url) => fetch(url).then((res) => res.json())
+  );
+
   let bgType = "Background";
   if (artwork.bg.startsWith("linear-gradient")) {
     bgType = "Linear Gradient";
@@ -15,7 +31,21 @@ export default function FullScreenDetails({ close, artwork }) {
     bgType = "Image";
   }
   return (
-    <Model close={close}>
+    <Model
+      close={() => {
+        const { fll, ...others } = router.query;
+        router.push(
+          {
+            pathname: router.pathname,
+            query: others,
+          },
+          null,
+          {
+            shallow: true,
+          }
+        );
+      }}
+    >
       <div className="w-[95%] h-[84%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg">
         <header className="w-full h-full p-5 md:px-8 flex flex-col items-stretch space-y-10">
           <div className="flex items-start justify-between">
