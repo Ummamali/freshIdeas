@@ -2,53 +2,71 @@
   "car1": {
     "src": "/illustrations/car.svg",
     "bg": "linear-gradient(to top, #222, #555)",
-    "pallets": ["#BF2626", "#595959"]
+    "pallets": ["#BF2626", "#595959"],
+    "title": "Racing Car",
+    "keywords": ["Fresh"]
   },
   "clouds1": {
     "src": "/illustrations/clouds.svg",
     "bg": "linear-gradient(to bottom, #bdd4e7 0%, #8693ab 90%)",
-    "pallets": ["#B4CBD9", "#8593A6", "#595959"]
+    "pallets": ["#B4CBD9", "#8593A6", "#595959"],
+    "title": "Cloud Company",
+    "keywords": ["Fresh"]
   },
   "gears1": {
     "src": "/illustrations/gears.svg",
     "bg": "linear-gradient(to bottom, #BFBFBF, #F2F2F2 20%, #BFBFBF 90%)",
     "pallets": ["#158FBF", "#737373", "#404040"],
-    "padding": "1.5rem"
+    "padding": "1.5rem",
+    "title": "Gears",
+    "keywords": ["Fresh"]
   },
   "icecream1": {
     "src": "/illustrations/icecream.png",
     "bg": "radial-gradient(circle at center, hsl(199deg 38% 50%), hsl(199deg 58% 60%))",
-    "pallets": ["#F2A71B", "#5357A6", "#62C3D9", "#87BF4E", "#F2780C"]
+    "pallets": ["#F2A71B", "#5357A6", "#62C3D9", "#87BF4E", "#F2780C"],
+    "title": "Icecream Company",
+    "keywords": ["Fresh"]
   },
   "mountains1": {
     "src": "/illustrations/mountains.svg",
     "bg": "radial-gradient(circle at center, hsl(31 83% 75% / 1), hsl(31deg 94% 64%))",
-    "pallets": ["#A66963", "hsl(31deg 94% 64%)"]
+    "pallets": ["#A66963", "hsl(31deg 94% 64%)"],
+    "title": "Mountain Company",
+    "keywords": ["Fresh"]
   },
   "tree1": {
     "src": "/illustrations/tree.svg",
     "bg": "radial-gradient(circle at center, hsl(210 96% 84% / 1), hsl(204 62% 49% / 1))",
-    "pallets": ["#038C33", "#59A8D9", "#8C5A2E"]
+    "pallets": ["#038C33", "#59A8D9", "#8C5A2E"],
+    "title": "Spring Tree",
+    "keywords": ["Fresh"]
   },
   "bulb1": {
     "src": "/illustrations/bulb.svg",
     "bg": "radial-gradient(circle at center, hsl(0deg 0% 100%) 40%, hsl(200deg 15% 87%))",
-    "padding": "1.5rem"
+    "padding": "1.5rem",
+    "title": "Bulb Sparkle",
+    "keywords": ["Fresh"]
   },
   "clock1": {
     "src": "/illustrations/clock.svg",
     "bg": "linear-gradient(45deg, transparent, transparent 15%, rgba(0,0,0,0.2) 15%, rgba(0,0,0,0.2) 25%, transparent 25%), linear-gradient(to top right, hsl(187deg 87% 65%), hsl(187deg 84% 42%))",
     "pallets": ["#D9B855", "#262323"],
-    "padding": "1.5rem"
+    "padding": "1.5rem",
+    "title": "Clock Tick",
+    "keywords": ["Fresh", "Nature"]
   },
   "flower1": {
     "src": "/illustrations/flower.svg",
     "bg": "linear-gradient(50deg, hsl(265deg 64% 62%), hsl(187deg 74% 76%))",
-    "title": "Spring Flower"
+    "title": "Spring Flower",
+    "keywords": ["Fresh"]
   },
   "settingSun1": {
     "src": "/illustrations/sun.png",
     "bg": "linear-gradient(to top, hsl(14deg 90% 43% / 10%), transparent), url(/illustrations/backgrounds/sun.svg) center center / cover",
-    "title": "Sun in dark"
+    "title": "Sun in dark",
+    "keywords": ["Fresh"]
   }
 }

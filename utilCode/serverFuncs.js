@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import fsSync from "fs";
 import path from "path";
 import lqd from "../Data/Liquids/home";
 
@@ -6,6 +7,12 @@ export async function readFromData(...filePath) {
   const fullPath = path.join(process.cwd(), "Data", ...filePath);
   const fileContent = await fs.readFile(fullPath, "utf-8");
   return await JSON.parse(fileContent);
+}
+
+export function readFromDataSync(...filePath) {
+  const fullPath = path.join(process.cwd(), "Data", ...filePath);
+  const fileContent = fsSync.readFileSync(fullPath, "utf-8");
+  return JSON.parse(fileContent);
 }
 
 export async function loadFirstTiles(category = "") {

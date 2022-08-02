@@ -1,5 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Icon from "./Icon";
+import useSWR from "swr";
 
 export default function SearchBar({
   search,
@@ -9,16 +10,29 @@ export default function SearchBar({
   searchIcon = <Icon name="search_dark" className="opacity-80 w-7 h-7" />,
 }) {
   const ref = useRef();
+  const [q, setQ] = useState("");
+  const { data, err } = useSWR(
+    () => (q === "" ? null : q),
+    (url) => fetch(`/api/search?q=${q}`).then((res) => res.json())
+  );
+
+  const isLoading = !data && !err && q !== "";
+
+  function submitHandler(e) {
+    e.preventDefault();
+    setQ(ref.current.value);
+  }
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        search(ref.current.value);
-      }}
+      onSubmit={submitHandler}
       className={
-        "flex items-center space-x-4 border-b border-white/25 " + className
+        "flex items-center space-x-4 border-b border-white/25 relative overflow-x-hidden " +
+        className
       }
     >
+      {isLoading && (
+        <div className="h-0.5 w-20 absolute left-0 bottom-0 bg-primary z-10 rounded loadingBar"></div>
+      )}
       <label htmlFor="searchBar">{searchIcon}</label>
       <input
         type="text"
@@ -29,6 +43,22 @@ export default function SearchBar({
         placeholder={placeholder}
       />
       <style jsx>{`
+        .loadingBar {
+          animation: travel 2s infinite;
+          animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes travel {
+          from {
+            transform: translateX(-100%);
+            left: 0%;
+          }
+          to {
+            transform: translateX(0%);
+            left: 100%;
+          }
+        }
+
         ${styledJsx}
       `}</style>
     </form>

@@ -9,7 +9,7 @@ import CategoryBar from "./CategoryBar";
 import FullScreenDetails from "./FullScreenDetails";
 import Showcase from "./Showcase";
 import ShowResults from "./ShowResults";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   artworksActions,
   loadArtworks,
@@ -25,16 +25,10 @@ export default function HomeScreen({ preload, currentCat }) {
     loadMore,
     data: results,
     loading,
-  } = useIncrementalFetch(
-    "/api/illustration",
-    { cat: currentCat },
-    lqd.tile.length,
-    {
-      initialSize: 1,
-      fallbackData: [preload],
-    }
-  );
-
+  } = useIncrementalFetch("/api/search", { cat: currentCat }, lqd.tile.length, {
+    initialSize: 1,
+    fallbackData: [preload],
+  });
   useEffect(() => {
     if (!preloadedCats.includes(currentCat)) {
       dispatch(loadArtworks(preload));
