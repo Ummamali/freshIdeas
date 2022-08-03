@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import fsSync from "fs";
 import path from "path";
 import lqd from "../Data/Liquids/home";
+import Fuse from "fuse.js";
 
 export async function readFromData(...filePath) {
   const fullPath = path.join(process.cwd(), "Data", ...filePath);
@@ -29,4 +30,17 @@ export async function loadFirstTiles(category = "") {
     }
     return mappedCats;
   }
+}
+
+export function filterCategory(category) {
+  const ills = readFromDataSync("Main", "Illustrations.json");
+
+  const illsItems = Array.from(Object.entries(ills)).map((item) => {
+    const [id, obj] = item;
+    return { id, ...obj };
+  });
+
+  const fuse = new Fuse(illsItems, { indludeScore: true, keys: ["keywords"] });
+
+  return fuse.search(category);
 }

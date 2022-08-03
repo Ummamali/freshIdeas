@@ -1,4 +1,4 @@
-import { readFromData, readFromDataSync } from "../../utilCode/serverFuncs";
+import { readFromDataSync } from "../../utilCode/serverFuncs";
 import Fuse from "fuse.js";
 
 const ills = readFromDataSync("Main", "Illustrations.json");
@@ -8,33 +8,24 @@ const illsItems = Array.from(Object.entries(ills)).map((item) => {
   return { id, ...obj };
 });
 
-const categoryCache = new Map();
-
-export default function (req, res) {
-  if (req.method === "GET") {
-    let { q = null, cat = null, start = 0, count = null } = req.query;
-    start = parseInt(start);
-    const sliceEnd = count !== null ? parseInt(count) + start : undefined;
-    let options;
-    if (cat !== null) {
-      if (typeof categoryCache.get(cat) !== "undefined") {
-        res
-          .status(200)
-          .json({ result: categoryCache.get(cat).slice(start, sliceEnd) });
-      } else {
-        options = { includeScore: true, keys: ["keywords"] };
-        const fuse = new Fuse(illsItems, options);
-        const result = fuse.search(cat);
-        categoryCache.set(cat, result);
-        res.status(200).json({
-          result: result.slice(start, sliceEnd),
-        });
-      }
-    } else if (q !== null) {
-      options = { includeScore: true, keys: ["keywords", "title"] };
-      const fuse = new Fuse(illsItems.slice(start, sliceEnd), options);
-      const result = fuse.search(q);
-      res.status(200).json({ result });
-    }
+export default async function handler(req, res) {
+  let { q = null, searchFrom = null, cat = null, count = null } = req.query;
+  if (!q || !searchFrom || !count) {
+    res.status(400).json({ msg: "All params are required" });
   }
+
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  q = cat !== null ? `${q} ${cat}` : q;
+  searchFrom = parseInt(searchFrom);
+  count = parseInt(count);
+
+  const fuse = new Fuse(illsItems.slice(searchFrom), {
+    includeScore: true,
+    keys: ["title", "keywords"],
+  });
+
+  const result = fuse.search(`\`"${q}"`, { limit: count });
+
+  res.status(200).json({ result });
 }

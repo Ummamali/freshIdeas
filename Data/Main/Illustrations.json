@@ -40,7 +40,7 @@
     "bg": "radial-gradient(circle at center, hsl(210 96% 84% / 1), hsl(204 62% 49% / 1))",
     "pallets": ["#038C33", "#59A8D9", "#8C5A2E"],
     "title": "Spring Tree",
-    "keywords": ["Fresh"]
+    "keywords": ["Fresh", "Nature"]
   },
   "bulb1": {
     "src": "/illustrations/bulb.svg",

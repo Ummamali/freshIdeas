@@ -1,26 +1,30 @@
 import React, { useRef, useState } from "react";
 import Icon from "./Icon";
+import { useRouter } from "next/router";
 import useSWR from "swr";
 
 export default function SearchBar({
-  search,
   className,
   placeholder = "Search illustrations here...",
   styledJsx = "",
   searchIcon = <Icon name="search_dark" className="opacity-80 w-7 h-7" />,
 }) {
   const ref = useRef();
-  const [q, setQ] = useState("");
-  const { data, err } = useSWR(
-    () => (q === "" ? null : q),
-    (url) => fetch(`/api/search?q=${q}`).then((res) => res.json())
-  );
-
-  const isLoading = !data && !err && q !== "";
+  const router = useRouter();
 
   function submitHandler(e) {
     e.preventDefault();
-    setQ(ref.current.value);
+    const newQ = ref.current.value;
+    const { q, ...others } = router.query;
+    const query = newQ !== "" ? { ...router.query, q: newQ } : others;
+    router.push(
+      {
+        pathname: router.pathname,
+        query,
+      },
+      null,
+      { shallow: true }
+    );
   }
   return (
     <form
@@ -30,9 +34,6 @@ export default function SearchBar({
         className
       }
     >
-      {isLoading && (
-        <div className="h-0.5 w-20 absolute left-0 bottom-0 bg-primary z-10 rounded loadingBar"></div>
-      )}
       <label htmlFor="searchBar">{searchIcon}</label>
       <input
         type="text"

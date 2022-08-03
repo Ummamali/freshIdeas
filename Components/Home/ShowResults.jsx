@@ -3,17 +3,19 @@ import styles from "./ShowResults.module.css";
 import LoadingTile from "./LoadingTile";
 import SingleResult from "./SingleResult";
 import Icon from "../Utils/Icon";
+import lqd from "../../Data/Liquids/home";
 
 export const configs = {
   palleteLength: 2,
   imgPadding: "1rem", // default space around the image
 };
 
-export default function ShowResults({ results, tile, isLoading }) {
+export default function ShowResults({ results, isLoading }) {
+  const tile = lqd.tile;
   const renderTiles = [];
   for (const [i, singlePage] of results.entries()) {
-    const thisItems = singlePage.map((item, i) => (
-      <SingleResult artwork={item} key={item.id} gridArea={tile[i]} />
+    const thisItems = singlePage.map((rslt, i) => (
+      <SingleResult artwork={rslt.item} key={rslt.item.id} gridArea={tile[i]} />
     ));
     if (thisItems.length > 0) {
       renderTiles.push(

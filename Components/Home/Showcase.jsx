@@ -1,7 +1,9 @@
 import React from "react";
+import lqd from "../../Data/Liquids/home";
 import SearchBar from "../Utils/SearchBar";
 
-export default function Showcase({ title, text }) {
+export default function Showcase() {
+  const { title, text } = lqd.showcase;
   return (
     <div className="py-10 px-4">
       <div className="text-center max-w-lg mx-auto mb-4">
@@ -13,7 +15,6 @@ export default function Showcase({ title, text }) {
       </div>
       <SearchBar
         className={"rootEl"}
-        search={console.log}
         styledJsx={`
         .rootEl{
           max-width: 40rem;
