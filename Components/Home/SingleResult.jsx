@@ -13,7 +13,13 @@ export default function SingleResult({ artwork, gridArea }) {
   const router = useRouter();
 
   let [fName, type] = getFilename(artwork.src).split(".");
-  const { src, bg, padding = configs.imgPadding, pallets = [] } = artwork;
+  const {
+    src,
+    bg,
+    borderClass = "",
+    padding = configs.imgPadding,
+    pallets = [],
+  } = artwork;
   let { title = fName } = artwork;
   title = titleIt(title);
   return (
@@ -21,7 +27,6 @@ export default function SingleResult({ artwork, gridArea }) {
       className="relative w-full h-full p-2 card "
       style={{ gridArea }}
       onClick={(e) => {
-        console.log(e.target.dataset);
         if (e.target.dataset.details === "yes") {
           router.push(
             {
@@ -39,6 +44,7 @@ export default function SingleResult({ artwork, gridArea }) {
           src={src}
           padding={padding}
           background={bg}
+          borderClass={borderClass}
           className="w-full h-full"
         />
         <div

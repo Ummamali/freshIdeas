@@ -1,9 +1,11 @@
+// these variable are used multiple times in the config, change it here to update all
 const mainContainer = "1324px";
 
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./Components/**/*.{js,ts,jsx,tsx}",
+    "./Data/**/*.{js,json}",
   ],
   theme: {
     extend: {

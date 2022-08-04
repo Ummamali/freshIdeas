@@ -38,7 +38,7 @@ export default function ShowResults({ results, isLoading }) {
   );
 
   return (
-    <div className="max-w-container mx-4 my-2 sm:mx-6 container:mx-auto">
+    <div className="max-w-container mx-2 my-2 sm:mx-6 container:mx-auto">
       {renderTiles.length > 0 ? renderTiles : emptyMsg}
     </div>
   );

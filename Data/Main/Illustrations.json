@@ -68,5 +68,13 @@
     "bg": "linear-gradient(to top, hsl(14deg 90% 43% / 10%), transparent), url(/illustrations/backgrounds/sun.svg) center center / cover",
     "title": "Sun in dark",
     "keywords": ["Fresh"]
+  },
+  "artbook1": {
+    "src": "/illustrations/art_book_1.svg",
+    "title": "Color Artbook",
+    "bg": "hsl(0deg 0% 93%)",
+    "borderClass": "border border-gray-300",
+    "keywords": ["Fresh", "Design"],
+    "pallets": ["#04BFAD", "#F2F2F2", "#F2421B", "#2EA658", "#325CD9"]
   }
 }

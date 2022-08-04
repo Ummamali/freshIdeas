@@ -46,7 +46,7 @@ export default function FullScreenDetails() {
         );
       }}
     >
-      <div className="w-[95%] h-[84%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg">
+      <div className="w-full h-[84%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg">
         <header className="w-full h-full p-5 md:px-8 flex flex-col items-stretch space-y-10">
           <div className="flex items-start justify-between">
             <div className="leading-[0.1]">
@@ -97,7 +97,7 @@ export default function FullScreenDetails() {
 
             <div>
               <small className="text-black/80">Artwork Background</small>
-              <button className="flex items-center text-black/80 text-sm space-x-2 underline-offset-1 hover:underline">
+              <button className="flex items-center text-black/70 text-sm space-x-2 underline-offset-1 hover:underline">
                 <div
                   className="w-6 h-6 rounded-full shadow-sm"
                   style={{ background: artwork.bg }}

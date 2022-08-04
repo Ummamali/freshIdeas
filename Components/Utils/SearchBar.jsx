@@ -9,12 +9,13 @@ export default function SearchBar({
   styledJsx = "",
   searchIcon = <Icon name="search_dark" className="opacity-80 w-7 h-7" />,
 }) {
-  const ref = useRef();
   const router = useRouter();
+  const { q = "" } = router.query;
+  const [searchVal, setSearchVal] = useState(q);
 
   function submitHandler(e) {
     e.preventDefault();
-    const newQ = ref.current.value;
+    const newQ = searchVal;
     const { q, ...others } = router.query;
     const query = newQ !== "" ? { ...router.query, q: newQ } : others;
     router.push(
@@ -37,11 +38,12 @@ export default function SearchBar({
       <label htmlFor="searchBar">{searchIcon}</label>
       <input
         type="text"
-        ref={ref}
         id="searchBar"
         autoComplete="off"
         className="placeholder:text-sm placeholder:text-white/40 placeholder:font-light focus:outline-none font-light bg-transparent text-white/70 w-full"
         placeholder={placeholder}
+        value={searchVal}
+        onChange={(e) => setSearchVal(e.target.value)}
       />
       <style jsx>{`
         .loadingBar {
