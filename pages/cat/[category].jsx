@@ -1,8 +1,6 @@
 import React from "react";
 import HomeScreen from "../../Components/Home/HomeScreen";
 import lqd from "../../Data/Liquids/home";
-
-import Fuse from "Fuse.js";
 import { filterCategory } from "../../utilCode/serverFuncs";
 
 export default function CategoryHome(props) {
