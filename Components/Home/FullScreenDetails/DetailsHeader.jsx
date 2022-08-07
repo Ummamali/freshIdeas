@@ -1,6 +1,8 @@
 import React from "react";
+import { getTextColor } from "../../../utilCode/neutralFuncs";
 import Artwork from "../../Utils/Artwork";
 import ColorPallete from "../../Utils/ColorPallete";
+import PalleteCollection from "./PalleteCollection";
 
 export default function DetailsHeader({ artwork }) {
   let bgType = "Background";
@@ -11,6 +13,8 @@ export default function DetailsHeader({ artwork }) {
   } else if (artwork.bg.startsWith("url")) {
     bgType = "Image";
   }
+  const downloadBg =
+    artwork.pallets.length > 0 ? artwork.pallets[0] : "#2F8F4B";
   return (
     <header className="w-full h-full p-5 md:px-8 flex flex-col items-stretch space-y-10">
       <div className="flex items-start justify-between">
@@ -20,12 +24,12 @@ export default function DetailsHeader({ artwork }) {
         </div>
         <a
           href={artwork.src}
-          download={artwork.name + "." + artwork.type}
+          download={artwork.title + "." + artwork.type}
           style={{
-            backgroundColor:
-              artwork.pallets.length > 0 ? artwork.pallets[0] : "#2F8F4B",
+            backgroundColor: downloadBg,
+            color: getTextColor(downloadBg),
           }}
-          className="text-sm px-5 py-2 hover:brightness-110 rounded-sm text-black/70"
+          className="text-sm px-5 py-2 hover:brightness-110 rounded-sm"
         >
           Download
         </a>
@@ -34,26 +38,12 @@ export default function DetailsHeader({ artwork }) {
         src={artwork.src}
         padding="1.5rem"
         background={artwork.bg}
-        className="w-full rounded-sm overflow-hidden grow sm:w-[90%] sm:mx-auto shadow-sm"
+        className="w-full rounded-sm overflow-hidden grow sm:w-[90%] sm:mx-auto lg:w-[70%] shadow-sm"
       />
       <div className="flex items-start justify-between">
         <div>
           <small className="text-black/80">Artwork Pallete</small>
-          <div className="flex items-center space-x-1">
-            {artwork.pallets.length > 0 ? (
-              artwork.pallets.map((clr) => (
-                <ColorPallete
-                  color={clr}
-                  key={clr}
-                  className="w-6 h-6 shadow-sm"
-                />
-              ))
-            ) : (
-              <small className="text-black/60 italic">
-                No pallets found...
-              </small>
-            )}
-          </div>
+          <PalleteCollection pallets={artwork.pallets} />
         </div>
 
         <div>

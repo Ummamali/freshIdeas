@@ -6,6 +6,11 @@ body {
   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* for material symbols */
+.material-symbols-outlined {
+  line-height: 1;
+}
+
 /* The styles scroll bar is only visible for bigger devices */
 @media (min-width: 430px) {
   /* width */

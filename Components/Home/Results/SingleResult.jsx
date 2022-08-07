@@ -1,5 +1,9 @@
 import Image from "next/image";
-import { getFilename, titleIt } from "../../../utilCode/neutralFuncs";
+import {
+  getFilename,
+  getTextColor,
+  titleIt,
+} from "../../../utilCode/neutralFuncs";
 import Artwork from "../../Utils/Artwork";
 
 import { useDispatch } from "react-redux";
@@ -22,6 +26,7 @@ export default function SingleResult({ artwork, gridArea }) {
   } = artwork;
   let { title = fName } = artwork;
   title = titleIt(title);
+  const buttonBg = pallets.length > 0 ? pallets[0] : "#2F8F4B";
   return (
     <div
       className="relative w-full h-full p-2 card "
@@ -74,9 +79,10 @@ export default function SingleResult({ artwork, gridArea }) {
               href={src}
               download={title + "." + type}
               style={{
-                backgroundColor: pallets.length > 0 ? pallets[0] : "#2F8F4B",
+                backgroundColor: buttonBg,
+                color: getTextColor(buttonBg),
               }}
-              className="text-sm px-5 py-2 hover:brightness-110 rounded-sm text-black/70"
+              className="text-sm px-5 py-2 hover:brightness-110 rounded-sm"
             >
               Download
             </a>
@@ -102,18 +108,3 @@ export default function SingleResult({ artwork, gridArea }) {
     </div>
   );
 }
-
-/*  
-
-const copy = (
-  <div
-    
-    style={{ background: bg, padding }}
-  >
-    <div className="w-full h-full relative">
-      <Image alt={name} src={src} layout="fill" objectFit="contain" />
-    </div>
-    
-  </div>
-);
-*/

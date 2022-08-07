@@ -1,5 +1,5 @@
 export async function artworkFetcher(url) {
-  // this fetcher is only for hook that fetch artworks
+  // this fetcher is only for hooks that fetch artworks
   const res = await fetch(url);
   if (res.ok) {
     const resObj = await res.json();

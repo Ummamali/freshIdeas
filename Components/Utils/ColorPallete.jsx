@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { getTextColor } from "../../utilCode/neutralFuncs";
 import Icon from "../Utils/Icon";
-import styles from "./ColorPallete.module.css";
 
 export default function ColorPallete({ color, className = "" }) {
   const [copied, setCopied] = useState(false);
@@ -12,16 +12,29 @@ export default function ColorPallete({ color, className = "" }) {
   return (
     <>
       <button
-        className={`flex items-center justify-center p-[0.2rem] rounded-full ${className} ${styles.pallete}`}
+        className={`flex items-center justify-center p-1 rounded-full palleteCircle ${className}`}
         style={{ background: color }}
         onClick={copyToClip}
         onMouseLeave={setCopied.bind(null, false)}
       >
-        <Icon
-          name={copied ? "tick_dark" : "content_copy_dark"}
-          className={"w-4 h-4 opacity-0  " + styles.icon}
-        />
+        <span
+          className="material-symbols-outlined transition-opacity duration-75"
+          style={{ fontSize: "1.2rem", color: getTextColor(color) }}
+        >
+          {copied ? "done" : "content_copy"}
+        </span>
       </button>
+      <style jsx>
+        {`
+          .palleteCircle span {
+            opacity: 0;
+          }
+
+          .palleteCircle:hover span {
+            opacity: 1;
+          }
+        `}
+      </style>
     </>
   );
 }
