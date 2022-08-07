@@ -2,13 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import useSWRInfinite from "swr/infinite";
 import lqd from "../Data/Liquids/home";
-
-async function fetcher(url) {
-  const res = await fetch(url);
-  const resObj = await res.json();
-  // api just returns an object with one attribute 'results'
-  return resObj.result;
-}
+import { artworkFetcher } from "./sharedCode";
 
 export default function useNaturalSearch(initialResult, category) {
   const count = lqd.tile.length;
@@ -34,7 +28,7 @@ export default function useNaturalSearch(initialResult, category) {
 
   const { data, error, setSize, size } = useSWRInfinite(
     getKey,
-    fetcher,
+    artworkFetcher,
     options
   );
 

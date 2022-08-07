@@ -9,7 +9,7 @@ export default function SWRGlobalConfigs({ children }) {
   // change this object to effect global configs
   const value = {
     use: [getIllustrationsDispatcher(dispatch)],
-    errorRetryCount: 3,
+    errorRetryCount: 0,
   };
   return <SWRConfig value={value}>{children}</SWRConfig>;
 }

@@ -1,13 +1,7 @@
 import { useRouter } from "next/router";
 import useSWRInfinite from "swr/infinite";
 import lqd from "../Data/Liquids/home";
-
-async function fetcher(url) {
-  const res = await fetch(url);
-  const resObj = await res.json();
-  // api just returns an object with one attribute 'results'
-  return resObj.result;
-}
+import { artworkFetcher } from "./sharedCode";
 
 export default function useQuerySearch() {
   const count = lqd.tile.length;
@@ -39,7 +33,7 @@ export default function useQuerySearch() {
     error,
     setSize,
     size,
-  } = useSWRInfinite(getKey, fetcher, options);
+  } = useSWRInfinite(getKey, artworkFetcher, options);
 
   const hasExhausted =
     data.length > 0 ? data[data.length - 1].length < count : false;
