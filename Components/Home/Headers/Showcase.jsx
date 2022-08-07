@@ -1,6 +1,6 @@
 import React from "react";
-import lqd from "../../Data/Liquids/home";
-import SearchBar from "../Utils/SearchBar";
+import lqd from "../../../Data/Liquids/home";
+import SearchBar from "../../Utils/SearchBar";
 
 export default function Showcase() {
   const { title, text } = lqd.showcase;

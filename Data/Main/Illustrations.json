@@ -15,7 +15,8 @@
   },
   "gears1": {
     "src": "/illustrations/gears.svg",
-    "bg": "linear-gradient(to bottom, #BFBFBF, #F2F2F2 20%, #BFBFBF 90%)",
+    "bg": "hsl(0deg 0% 93%)",
+    "borderClass": "border border-gray-300",
     "pallets": ["#158FBF", "#737373", "#404040"],
     "padding": "1.5rem",
     "title": "Gears",
@@ -23,7 +24,7 @@
   },
   "icecream1": {
     "src": "/illustrations/icecream.png",
-    "bg": "radial-gradient(circle at center, hsl(199deg 38% 50%), hsl(199deg 58% 60%))",
+    "bg": "hsl(199deg 58% 60%)",
     "pallets": ["#F2A71B", "#5357A6", "#62C3D9", "#87BF4E", "#F2780C"],
     "title": "Icecream Company",
     "keywords": ["Fresh"]
@@ -76,5 +77,13 @@
     "borderClass": "border border-gray-300",
     "keywords": ["Fresh", "Design"],
     "pallets": ["#04BFAD", "#F2F2F2", "#F2421B", "#2EA658", "#325CD9"]
+  },
+  "tennisBall1": {
+    "src": "/illustrations/tennis_balls.svg",
+    "title": "Tennis Ball",
+    "bg": "linear-gradient(144deg, transparent 10%, rgb(161 191 54) 10%, rgb(161, 191, 54) 15%, transparent 15%), linear-gradient(325deg, transparent 10%, rgb(161, 191, 54) 10%, rgb(161, 191, 54) 15%, transparent 15%), rgb(43, 43, 43)",
+    "keywords": ["Fresh"],
+    "pallets": ["#92BF30", "#A1BF36", "#F2F2F2"],
+    "padding": "2rem"
   }
 }

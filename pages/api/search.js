@@ -14,8 +14,6 @@ export default async function handler(req, res) {
     res.status(400).json({ msg: "All params are required" });
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
   q = cat !== null ? `${q} ${cat}` : q;
   searchFrom = parseInt(searchFrom);
   count = parseInt(count);

@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./ShowResults.module.css";
 import LoadingTile from "./LoadingTile";
 import SingleResult from "./SingleResult";
-import Icon from "../Utils/Icon";
-import lqd from "../../Data/Liquids/home";
+import Icon from "../../Utils/Icon";
+import lqd from "../../../Data/Liquids/home";
 
 export const configs = {
   palleteLength: 2,

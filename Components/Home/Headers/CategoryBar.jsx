@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { useRouter } from "next/router";
 
-import styles from "../../styles/hiddenScroll.module.css";
-import Icon from "../Utils/Icon";
+import Icon from "../../Utils/Icon";
 
-import lqd from "../../Data/Liquids/home";
+import lqd from "../../../Data/Liquids/home";
 import Link from "next/link";
 
 const scrollJump = 150;
@@ -67,8 +66,7 @@ export default function CategoryBar({ current }) {
         )}
         <div
           className={
-            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3.5 px-4 scroll-smooth " +
-            styles.scrollHidden
+            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3.5 px-4 scroll-smooth scrollHidden"
           }
           onScroll={scrollHandler}
           ref={barRef}
@@ -107,6 +105,12 @@ export default function CategoryBar({ current }) {
           </button>
         )}
       </div>
+      <style jsx>{`
+        /* width */
+        .scrollHidden::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </div>
   );
 }

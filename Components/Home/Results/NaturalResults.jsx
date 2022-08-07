@@ -1,10 +1,14 @@
 import React from "react";
-import useQuerySearch from "../../hooks/useQuerySearch";
-import Showcase from "./Showcase";
+import useNaturalSearch from "../../../hooks/useNaturalSearch";
+import Showcase from "../Headers/Showcase";
 import ShowResults from "./ShowResults";
 
-export default function QueryResults({ category }) {
-  const { loadMore, data: results, isLoading } = useQuerySearch();
+export default function NaturalResults({ preload, category }) {
+  const {
+    loadMore,
+    data: results,
+    isLoading,
+  } = useNaturalSearch(preload, category);
 
   function scrollHandler(e) {
     const target = e.target;

@@ -1,26 +1,61 @@
 import { useSelector, useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
 import Image from "next/image";
 import React from "react";
-import Icon from "../Utils/Icon";
-import Model from "../Utils/Model";
-import Artwork from "./Artwork";
-import ColorPallete from "./ColorPallete";
-import { useRouter } from "next/router";
-import useSWR from "swr";
+import Icon from "../../Utils/Icon";
+import Model from "../../Utils/Model";
+import Artwork from "../../Utils/Artwork";
+import ColorPallete from "../../Utils/ColorPallete";
 
 export default function FullScreenDetails() {
   const router = useRouter();
   const artworkId = router.query.fll;
-  const artwork = useSelector((store) => store.artworks.loaded[artworkId]);
+  let artwork = useSelector((store) => store.artworks.loaded[artworkId]);
 
   const { data, err } = useSWR(
     () =>
       typeof artwork === "undefined"
-        ? `/singleIllustration?id=${artworkId}`
+        ? `/api/singleIllustration?id=${artworkId}`
         : null,
     (url) => fetch(url).then((res) => res.json())
   );
+
+  artwork = artwork ? artwork : data ? data.result[0] : null;
+
+  function closeIt() {
+    const { fll, ...others } = router.query;
+    router.push(
+      {
+        pathname: router.pathname,
+        query: others,
+      },
+      null,
+      {
+        shallow: true,
+      }
+    );
+  }
+
+  const isLoading = !artwork && !data && !err;
+
+  if (isLoading) {
+    return (
+      <Model close={closeIt}>
+        <div className="w-full h-[84%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg flex items-center justify-center">
+          <div className="saturate-50 animate-pulse">
+            <Image
+              src="/imgs/logoDark.svg"
+              width={70}
+              height={70}
+              alt="loading..."
+            />
+          </div>
+        </div>
+      </Model>
+    );
+  }
 
   let bgType = "Background";
   if (artwork.bg.startsWith("linear-gradient")) {
@@ -31,21 +66,7 @@ export default function FullScreenDetails() {
     bgType = "Image";
   }
   return (
-    <Model
-      close={() => {
-        const { fll, ...others } = router.query;
-        router.push(
-          {
-            pathname: router.pathname,
-            query: others,
-          },
-          null,
-          {
-            shallow: true,
-          }
-        );
-      }}
-    >
+    <Model close={closeIt}>
       <div className="w-full h-[84%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg">
         <header className="w-full h-full p-5 md:px-8 flex flex-col items-stretch space-y-10">
           <div className="flex items-start justify-between">

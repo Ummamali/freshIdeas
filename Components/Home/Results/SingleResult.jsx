@@ -1,10 +1,10 @@
 import Image from "next/image";
-import { getFilename, titleIt } from "../../utilCode/neutralFuncs";
-import Artwork from "./Artwork";
+import { getFilename, titleIt } from "../../../utilCode/neutralFuncs";
+import Artwork from "../../Utils/Artwork";
 
 import { useDispatch } from "react-redux";
 
-import ColorPallete from "./ColorPallete";
+import ColorPallete from "../../Utils/ColorPallete";
 
 import { configs } from "./ShowResults";
 import { useRouter } from "next/router";
