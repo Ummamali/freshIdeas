@@ -7,10 +7,10 @@ export default function PalleteCollection({ pallets }) {
       <div className="flex items-center space-x-1 max-w-[100px] sm:max-w-[200px] overflow-x-scroll coll">
         {pallets.length > 0 ? (
           pallets.map((clr) => (
-            <ColorPallete color={clr} key={clr} className="p-2 shadow" />
+            <ColorPallete color={clr} key={clr} className="p-1 shadow" />
           ))
         ) : (
-          <small className="text-black/60 italic">No pallets found...</small>
+          <small className="italic">No pallets found...</small>
         )}
       </div>
       <style jsx>

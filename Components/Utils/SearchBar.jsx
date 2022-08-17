@@ -7,7 +7,7 @@ export default function SearchBar({
   className,
   placeholder = "Search illustrations here...",
   styledJsx = "",
-  searchIcon = <Icon name="search_dark" className="opacity-80 w-7 h-7" />,
+  searchIcon = <Icon name="search_dark" className="opacity-60 w-7 h-7" />,
 }) {
   const router = useRouter();
   const { q = "" } = router.query;

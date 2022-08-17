@@ -1,10 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
 /* This file contains all the global settings for the page */
 
-body {
-  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
+/* This is the head font Barlow */
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400&display=swap");
+/* This is the body font Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200&display=swap");
 
 /* for material symbols */
 .material-symbols-outlined {

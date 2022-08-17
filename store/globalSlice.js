@@ -2,8 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const globalSlice = createSlice({
   name: "globalSlice",
-  initialState: {},
-  reducers: {},
+  initialState: { loadMore: false },
+  reducers: {
+    triggerLoad: (state) => {
+      state.loadMore = true;
+    },
+  },
 });
 
 export const globalActions = globalSlice.actions;

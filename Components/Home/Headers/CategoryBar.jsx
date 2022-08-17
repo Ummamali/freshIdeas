@@ -46,7 +46,7 @@ export default function CategoryBar({ current }) {
     }
   }
   return (
-    <div className="bg-showcaseBg sticky top-0">
+    <div className="bg-categoryBar/[97%] backdrop-blur-sm">
       <div className="max-w-container mx-auto relative text-sm">
         {leftArrow && (
           <button
@@ -66,7 +66,7 @@ export default function CategoryBar({ current }) {
         )}
         <div
           className={
-            "flex items-center space-x-7 text-white/50 font-light overflow-x-auto py-3.5 px-4 scroll-smooth scrollHidden"
+            "flex items-center space-x-6 text-white/50 font-light tracking-wide overflow-x-auto py-3.5 px-4 scroll-smooth scrollHidden"
           }
           onScroll={scrollHandler}
           ref={barRef}

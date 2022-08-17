@@ -14,7 +14,7 @@ export default function Document() {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <body>
+      <body className="font-body">
         <div id="models"></div>
         <Main />
         <NextScript />

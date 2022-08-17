@@ -1,21 +1,31 @@
 import React from "react";
 import lqd from "../../../Data/Liquids/home";
+import Artwork from "../../Utils/Artwork";
 import SearchBar from "../../Utils/SearchBar";
 
 export default function Showcase() {
   const { title, text } = lqd.showcase;
   return (
-    <div className="py-10 px-4">
-      <div className="text-center max-w-lg mx-auto mb-4">
-        <h1 className="text-3xl sm:text-4xl font-head tracking-wide text-black/75">
-          {title}
-        </h1>
-        <div className="w-72 h-0.5 bg-primary mx-auto mb-3 brightness-110"></div>
-        <p className="text-black/70 text-sm sm:text-base">{text}</p>
-      </div>
-      <SearchBar
-        className={"rootEl"}
-        styledJsx={`
+    <div className="mainItem">
+      <div className="py-16 px-4 max-w-container container:mx-auto">
+        <div className="flex flex-col items-center space-y-6 lg:flex-row lg:space-y-0 sm:justify-between mb-8">
+          <div className="text-center lg:text-left">
+            <h1 className="text-3xl sm:text-[2.8rem] sm:leading-none font-head font-light tracking-tight uppercase text-white/60">
+              {title}
+            </h1>
+            <div className="w-64 h-0.5 mx-auto lg:mx-0 bg-primary mb-4 mt-2 brightness-110"></div>
+            <p className="max-w-lg text-white/60 font-light text-sm sm:text-base">
+              {text}
+            </p>
+          </div>
+          <Artwork
+            src={lqd.showcase.artworkSrc}
+            className="w-40 aspect-square md:w-64"
+          />
+        </div>
+        <SearchBar
+          className={"rootEl shadow"}
+          styledJsx={`
         .rootEl{
           max-width: 40rem;
           margin-left: auto;
@@ -26,7 +36,7 @@ export default function Showcase() {
         }
 
         .rootEl input::placeholder{
-          color: hsl(0 0% 40% / 1);
+          color: hsl(0 0% 55% / 1);
           font-size: 1rem;
         }
 
@@ -45,7 +55,37 @@ export default function Showcase() {
           }
         }
       `}
-      />
+        />
+      </div>
+      <style jsx>
+        {`
+          .mainItem {
+            background: linear-gradient(
+                315deg,
+                hsla(73 49% 20% / 0.1),
+                hsla(73 49% 20% / 0.1) 10%,
+                transparent 10%
+              ),
+              linear-gradient(
+                135deg,
+                hsla(73 49% 20% / 0.1),
+                hsla(73 49% 20% / 0.1) 12%,
+                transparent 12%
+              ),
+              linear-gradient(45deg, hsl(150, 3%, 15%), hsl(150, 3%, 12%));
+          }
+
+          @media (max-width: 1024px) {
+            .mainItem {
+              background: linear-gradient(
+                60deg,
+                hsl(150, 3%, 15%),
+                hsl(150, 3%, 12%)
+              );
+            }
+          }
+        `}
+      </style>
     </div>
   );
 }

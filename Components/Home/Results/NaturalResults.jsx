@@ -1,31 +1,24 @@
-import React from "react";
+import React, { useImperativeHandle } from "react";
+import { forwardRef } from "react";
 import useNaturalSearch from "../../../hooks/useNaturalSearch";
 import Showcase from "../Headers/Showcase";
 import ShowResults from "./ShowResults";
 
-export default function NaturalResults({ preload, category }) {
+function NaturalResults({ preload, category }, ref) {
   const {
     loadMore,
     data: results,
     isLoading,
   } = useNaturalSearch(preload, category);
 
-  function scrollHandler(e) {
-    const target = e.target;
-    const fromBottom =
-      target.scrollHeight - (target.clientHeight + target.scrollTop);
-    if (fromBottom < 2 && !isLoading) {
-      loadMore();
-    }
-  }
+  useImperativeHandle(ref, () => ({ loadMore, isLoading }), [isLoading]);
 
   return (
-    <main
-      className="grow overflow-y-scroll myScrollbar"
-      onScroll={scrollHandler}
-    >
+    <main>
       <Showcase category={category} />
       <ShowResults results={results} isLoading={isLoading} />
     </main>
   );
 }
+
+export default forwardRef(NaturalResults);

@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 export default function Navbar() {
   const [searchShowing, setSearchShowing] = useState(false);
   return (
-    <nav className="bg-navbg sticky top-0 z-10">
+    <nav className="bg-navbg">
       <div className="max-w-container mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/">
           <a className="hover:cursor-pointer flex items-center justify-center relative aspect-square w-8">

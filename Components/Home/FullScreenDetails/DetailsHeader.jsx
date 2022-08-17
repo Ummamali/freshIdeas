@@ -20,7 +20,7 @@ export default function DetailsHeader({ artwork }) {
       <div className="flex items-start justify-between">
         <div className="leading-[0.1]">
           <h3 className="text-2xl font-light text-black/85">{artwork.title}</h3>
-          <small className="ml-2 text-black/70 italic">.{artwork.type}</small>
+          <small className="ml-2 text-black italic">.{artwork.type}</small>
         </div>
         <a
           href={artwork.src}
@@ -29,7 +29,7 @@ export default function DetailsHeader({ artwork }) {
             backgroundColor: downloadBg,
             color: getTextColor(downloadBg),
           }}
-          className="text-sm px-5 py-2 hover:brightness-110 rounded-sm"
+          className="text-sm px-5 py-2 hover:brightness-110 rounded-sm shadow-sm"
         >
           Download
         </a>

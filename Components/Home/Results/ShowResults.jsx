@@ -38,8 +38,10 @@ export default function ShowResults({ results, isLoading }) {
   );
 
   return (
-    <div className="max-w-container mx-2 my-2 sm:mx-6 container:mx-auto">
-      {renderTiles.length > 0 ? renderTiles : emptyMsg}
+    <div className=" bg-white">
+      <div className="max-w-container mx-2 py-4 sm:mx-6 container:mx-auto">
+        {renderTiles.length > 0 ? renderTiles : emptyMsg}
+      </div>
     </div>
   );
 }

@@ -1,27 +1,21 @@
 import React from "react";
+import { useImperativeHandle } from "react";
+import { forwardRef } from "react";
 import useQuerySearch from "../../../hooks/useQuerySearch";
 import Showcase from "../Headers/Showcase";
 import ShowResults from "./ShowResults";
 
-export default function QueryResults({ category }) {
+function QueryResults({ category }, ref) {
   const { loadMore, data: results, isLoading } = useQuerySearch();
 
-  function scrollHandler(e) {
-    const target = e.target;
-    const fromBottom =
-      target.scrollHeight - (target.clientHeight + target.scrollTop);
-    if (fromBottom < 2 && !isLoading) {
-      loadMore();
-    }
-  }
+  useImperativeHandle(ref, () => ({ loadMore, isLoading }), [isLoading]);
 
   return (
-    <main
-      className="grow overflow-y-scroll myScrollbar"
-      onScroll={scrollHandler}
-    >
+    <main>
       <Showcase category={category} />
       <ShowResults results={results} isLoading={isLoading} />
     </main>
   );
 }
+
+export default forwardRef(QueryResults);
