@@ -21,20 +21,18 @@ export default function Feature({
     >
       <div className="max-w-lg md:text-left md:max-w-md">
         <div className="mb-4">
-          <h2 className="text-3xl mb-1 font-head text-gray-700 md:mb-0 lg:text-4xl">
+          <h2 className="text-xl mb-1 font-head text-black/80 md:mb-0 lg:text-2xl uppercase">
             {title}
           </h2>
           <div className="flex flex-col items-center space-y-4 md:flex-row md:space-y-0 md:space-x-2">
             <div
-              className="h-0.5 w-32 md:w-14"
+              className="h-0.5 w-32 md:w-14 rounded"
               style={{ backgroundColor: accentColor }}
             ></div>
-            <h3 className="text-black/60 font-light text-sm md:italic">
-              {subtitle}
-            </h3>
+            <h3 className="text-black text-sm md:italic">{subtitle}</h3>
           </div>
         </div>
-        <p className="leading-none text-gray-600 font-light text-sm">{text}</p>
+        <p className="leading-none text-black/80 text-sm">{text}</p>
       </div>
       <div className="flex flex-col">
         <Image

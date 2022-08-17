@@ -1,5 +1,6 @@
 import Feature from "../Components/About/Feature";
 import Showcase from "../Components/About/Showcase";
+import MainHeader from "../Components/Utils/MainHeader";
 import Navbar from "../Components/Utils/Navbar";
 
 import lqd from "../Data/Liquids/about";
@@ -7,7 +8,7 @@ import lqd from "../Data/Liquids/about";
 export default function About({ lqd }) {
   return (
     <>
-      <Navbar />
+      <MainHeader />
       <Showcase {...lqd.showcase} />
       <Feature {...lqd.featureOne} />
       <div className="w-80 mx-auto h-0.5 bg-gray-400"></div>

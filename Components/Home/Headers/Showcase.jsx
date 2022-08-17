@@ -14,7 +14,7 @@ export default function Showcase() {
               {title}
             </h1>
             <div className="w-64 h-0.5 mx-auto lg:mx-0 bg-primary mb-4 mt-2 brightness-110"></div>
-            <p className="max-w-lg text-white/60 font-light text-sm sm:text-base">
+            <p className="max-w-lg text-white/[55%] font-light text-sm sm:text-base">
               {text}
             </p>
           </div>

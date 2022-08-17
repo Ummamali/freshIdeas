@@ -12,6 +12,7 @@ import QueryResults from "./Results/QueryResults";
 import FullScreenDetails from "./FullScreenDetails/FullScreenDetails";
 import { globalActions } from "../../store/globalSlice";
 import { useRef } from "react";
+import MainHeader from "../Utils/MainHeader";
 
 export default function HomeScreen({ preload, currentCat }) {
   const queryRef = useRef();
@@ -33,10 +34,7 @@ export default function HomeScreen({ preload, currentCat }) {
       className="bg-categoryBar w-screen h-screen overflow-y-auto myScrollbar"
       onScroll={scrollHandler}
     >
-      <header className="sticky top-0 z-10">
-        <Navbar />
-        <CategoryBar current={currentCat} />
-      </header>
+      <MainHeader currentCat={currentCat} />
       {q !== "" ? (
         <QueryResults preload={preload} category={currentCat} ref={queryRef} />
       ) : (

@@ -13,17 +13,17 @@ export default function Showcase({
   footerText,
 }) {
   return (
-    <div className="py-10 md:py-16 px-4 bg-showcaseBg">
+    <div className="py-10 md:py-16 px-4 bg-categoryBar">
       <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left md:justify-between md:max-w-5xl md:mx-auto md:mb-16">
         <div className="px-8 md:px-0">
-          <h2 className="text-3xl font-head text-showcaseText/90">
+          <h2 className="text-3xl font-head text-showcaseText/90 uppercase">
             {smallTitle}
           </h2>
-          <h1 className="font-head text-showcaseHead text-6xl xl:text-7xl mb-4">
+          <h1 className="font-head text-showcaseHead text-4xl xl:text-5xl mb-4 font-light tracking-tight">
             {bigTitle}
           </h1>
-          <div className="text-sm font-light text-showcaseText/70 leading-tight max-w-lg md:max-w-md space-y-4">
-            <p>{text}</p>
+          <div className="text-sm text-showcaseText/60 leading-tight max-w-lg md:max-w-md space-y-4">
+            <p className="mb-8">{text}</p>
             <Link href="/">
               <a className="bg-primary py-3 px-12 inline-block rounded text-black/70 font-normal shadow-md">
                 Explore
