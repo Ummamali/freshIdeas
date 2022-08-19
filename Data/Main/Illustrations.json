@@ -82,7 +82,7 @@
     "src": "/illustrations/tennis_balls.svg",
     "title": "Tennis Ball",
     "bg": "linear-gradient(144deg, transparent 10%, rgb(161 191 54) 10%, rgb(161, 191, 54) 15%, transparent 15%), linear-gradient(325deg, transparent 10%, rgb(161, 191, 54) 10%, rgb(161, 191, 54) 15%, transparent 15%), rgb(43, 43, 43)",
-    "keywords": ["Fresh"],
+    "keywords": ["Fresh", "game"],
     "pallets": ["#92BF30", "#A1BF36", "#F2F2F2"],
     "padding": "2rem"
   },
@@ -93,5 +93,12 @@
     "borderClass": "border border-gray-300",
     "keywords": ["Fresh", "Architecture", "vehicle", "cars"],
     "pallets": ["black", "gray"]
+  },
+  "footballs1": {
+    "src": "/illustrations/footballs1.svg",
+    "title": "Football Time",
+    "bg": "linear-gradient(30deg, hsl(0deg 0% 96%) 60%, hsl(0deg 0% 94%) 60%)",
+    "keywords": ["Fresh", "game"],
+    "pallets": ["#000", "#333"]
   }
 }

@@ -4,7 +4,7 @@ import useNaturalSearch from "../../../hooks/useNaturalSearch";
 import Showcase from "../Headers/Showcase";
 import ShowResults from "./ShowResults";
 
-function NaturalResults({ preload, category }, ref) {
+function NaturalResults({ preload, category, artworkCount }, ref) {
   const {
     loadMore,
     data: results,
@@ -15,7 +15,7 @@ function NaturalResults({ preload, category }, ref) {
 
   return (
     <main>
-      <Showcase category={category} />
+      <Showcase category={category} artworkCount={artworkCount} />
       <ShowResults results={results} isLoading={isLoading} />
     </main>
   );

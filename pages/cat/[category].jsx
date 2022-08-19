@@ -15,9 +15,9 @@ export default function CategoryHome(props) {
 export async function getStaticProps({ params }) {
   const { category: currentCat } = params;
   const preload = filterCategory(currentCat);
-
+  const artworkCount = caltulateArtworks();
   return {
-    props: { currentCat, preload },
+    props: { currentCat, preload, artworkCount },
   };
 }
 

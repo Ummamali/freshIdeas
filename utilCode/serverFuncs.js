@@ -44,3 +44,8 @@ export function filterCategory(category) {
 
   return fuse.search(category);
 }
+
+export function caltulateArtworks() {
+  const artworks = readFromDataSync("Main", "Illustrations.json");
+  return Array.from(Object.keys(artworks)).length;
+}

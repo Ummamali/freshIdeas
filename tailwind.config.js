@@ -23,6 +23,9 @@ module.exports = {
         showcaseHead: "#2E8F4B",
         bannerAccent: "#3096C7",
       },
+      animation: {
+        shine: "shine 2000ms infinite ease-out",
+      },
       maxWidth: {
         container: mainContainer,
       },

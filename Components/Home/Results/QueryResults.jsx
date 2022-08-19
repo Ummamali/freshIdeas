@@ -5,14 +5,14 @@ import useQuerySearch from "../../../hooks/useQuerySearch";
 import Showcase from "../Headers/Showcase";
 import ShowResults from "./ShowResults";
 
-function QueryResults({ category }, ref) {
+function QueryResults({ category, artworkCount }, ref) {
   const { loadMore, data: results, isLoading } = useQuerySearch();
 
   useImperativeHandle(ref, () => ({ loadMore, isLoading }), [isLoading]);
 
   return (
     <main>
-      <Showcase category={category} />
+      <Showcase category={category} artworkCount={artworkCount} />
       <ShowResults results={results} isLoading={isLoading} />
     </main>
   );

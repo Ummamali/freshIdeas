@@ -15,7 +15,7 @@ import { useRef } from "react";
 import MainHeader from "../Utils/MainHeader";
 import Head from "next/head";
 
-export default function HomeScreen({ preload, currentCat }) {
+export default function HomeScreen({ preload, currentCat, artworkCount }) {
   const queryRef = useRef();
   const naturalRef = useRef();
   const router = useRouter();
@@ -36,16 +36,24 @@ export default function HomeScreen({ preload, currentCat }) {
       onScroll={scrollHandler}
     >
       <Head>
-        <title>Fresh Ideas | Free Professional Illustrations</title>
+        <title>
+          Fresh Ideas | Download Free Illustrations, Vectors and Artworks
+        </title>
       </Head>
       <MainHeader currentCat={currentCat} />
       {q !== "" ? (
-        <QueryResults preload={preload} category={currentCat} ref={queryRef} />
+        <QueryResults
+          preload={preload}
+          category={currentCat}
+          ref={queryRef}
+          artworkCount={artworkCount}
+        />
       ) : (
         <NaturalResults
           preload={preload}
           category={currentCat}
           ref={naturalRef}
+          artworkCount={artworkCount}
         />
       )}
       {router.query.fll && <FullScreenDetails />}
