@@ -2,7 +2,7 @@ import React from "react";
 import HomeScreen from "../../Components/Home/HomeScreen";
 import SWRGlobalConfigs from "../../Components/Utils/SWRGlobalConfigs";
 import lqd from "../../Data/Liquids/home";
-import { filterCategory } from "../../utilCode/serverFuncs";
+import { filterCategory, caltulateArtworks } from "../../utilCode/serverFuncs";
 
 export default function CategoryHome(props) {
   return (
