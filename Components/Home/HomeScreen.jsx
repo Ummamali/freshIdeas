@@ -13,6 +13,7 @@ import FullScreenDetails from "./FullScreenDetails/FullScreenDetails";
 import { globalActions } from "../../store/globalSlice";
 import { useRef } from "react";
 import MainHeader from "../Utils/MainHeader";
+import Head from "next/head";
 
 export default function HomeScreen({ preload, currentCat }) {
   const queryRef = useRef();
@@ -34,6 +35,9 @@ export default function HomeScreen({ preload, currentCat }) {
       className="bg-categoryBar w-screen h-screen overflow-y-auto myScrollbar"
       onScroll={scrollHandler}
     >
+      <Head>
+        <title>Fresh Ideas | Free Professional Illustrations</title>
+      </Head>
       <MainHeader currentCat={currentCat} />
       {q !== "" ? (
         <QueryResults preload={preload} category={currentCat} ref={queryRef} />

@@ -3,6 +3,7 @@ const lqd = {
     title: "design something special",
     text: "Download intuitive and beautiful illustrations for your business, print and digital designs. Get free drawings and shapes!",
     artworkSrc: "/illustrations/tennis_balls.svg",
+    illustrationCount: 13,
   },
   tile: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"],
   categories: [

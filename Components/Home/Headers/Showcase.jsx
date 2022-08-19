@@ -4,7 +4,7 @@ import Artwork from "../../Utils/Artwork";
 import SearchBar from "../../Utils/SearchBar";
 
 export default function Showcase() {
-  const { title, text } = lqd.showcase;
+  const { title, text, illustrationCount } = lqd.showcase;
   return (
     <div className="mainItem">
       <div className="py-16 px-4 max-w-container container:mx-auto">
@@ -24,7 +24,7 @@ export default function Showcase() {
           />
         </div>
         <SearchBar
-          className={"rootEl shadow"}
+          className={"rootEl shadow mb-2"}
           styledJsx={`
         .rootEl{
           max-width: 40rem;
@@ -56,6 +56,9 @@ export default function Showcase() {
         }
       `}
         />
+        <p className="text-center text-sm text-white/30">
+          {`Over ${illustrationCount} beautiful and entertaining drawings available for free`}
+        </p>
       </div>
       <style jsx>
         {`
