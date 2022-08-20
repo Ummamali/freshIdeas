@@ -100,5 +100,13 @@
     "bg": "linear-gradient(30deg, hsl(0deg 0% 96%) 60%, hsl(0deg 0% 94%) 60%)",
     "keywords": ["Fresh", "game"],
     "pallets": ["#000", "#333"]
+  },
+  "burger1": {
+    "src": "/illustrations/burger1.svg",
+    "title": "Burger",
+    "bg": "linear-gradient(to bottom, hsl(56 73% 68% / 1) 60%, hsl(56 73% 62% / 1))",
+    "keywords": ["Fresh", "Food"],
+    "pallets": ["#A6583C", "#732F20", "#D9D162", "#A69F3F"],
+    "padding": "2rem"
   }
 }
