@@ -108,5 +108,13 @@
     "keywords": ["Fresh", "Food"],
     "pallets": ["#A6583C", "#732F20", "#D9D162", "#A69F3F"],
     "padding": "2rem"
+  },
+  "fries1": {
+    "src": "/illustrations/frenchFries1.svg",
+    "title": "French Fries",
+    "bg": "radial-gradient(circle at 0% 50%, hsl(0 0% 13% / 1) 50%, transparent 50%), hsl(0 0% 16% / 1)",
+    "padding": "1.5rem",
+    "keywords": ["Fresh", "Food", "restaurant"],
+    "pallets": ["#BF2633", "#D9AB23", "#D99923", "#262626"]
   }
 }

@@ -7,7 +7,6 @@ export default function Feature({
   subtitle,
   text,
   imageSrc,
-  imgTitle,
   accentColor,
   reverse,
 }) {
