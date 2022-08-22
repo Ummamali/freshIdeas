@@ -18,9 +18,16 @@ export default function DetailsHeader({ artwork }) {
   return (
     <header className="w-full h-full p-5 md:px-8 flex flex-col items-stretch space-y-10">
       <div className="flex items-start justify-between">
-        <div className="leading-[0.1]">
-          <h3 className="text-2xl font-light text-black/85">{artwork.title}</h3>
-          <small className="ml-2 text-black italic">.{artwork.type}</small>
+        <div className="flex items-start space-x-2">
+          <div className="rounded-full h-7 w-7 bg-black/75"></div>
+          <div className="leading-[1]">
+            <h3 className="text-2xl font-light text-black/80">
+              {artwork.title}
+            </h3>
+            <p className="ml-5 text-black italic text-sm -mt-1">
+              .{artwork.type}
+            </p>
+          </div>
         </div>
         <a
           href={artwork.src}

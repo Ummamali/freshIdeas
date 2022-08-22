@@ -34,7 +34,7 @@ export default function FullScreenDetails() {
 
   return (
     <Model close={closeIt}>
-      <div className="w-full h-[80%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg">
+      <div className="w-full h-[90%] sm:w-[85%] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded shadow-lg overflow-y-auto myScrollbar">
         {isLoading ? <LoadingBody /> : <MainBody artwork={artwork} />}
       </div>
     </Model>

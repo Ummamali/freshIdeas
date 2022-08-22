@@ -76,7 +76,8 @@
     "bg": "hsl(0deg 0% 93%)",
     "borderClass": "border border-gray-300",
     "keywords": ["Fresh", "Design"],
-    "pallets": ["#04BFAD", "#F2F2F2", "#F2421B", "#2EA658", "#325CD9"]
+    "pallets": ["#04BFAD", "#F2F2F2", "#F2421B", "#2EA658", "#325CD9"],
+    "previewRoom": "roomLight"
   },
   "tennisBall1": {
     "src": "/illustrations/tennis_balls.svg",
@@ -92,7 +93,8 @@
     "bg": "hsl(0deg 0% 97%)",
     "borderClass": "border border-gray-300",
     "keywords": ["Fresh", "Architecture", "vehicle", "cars"],
-    "pallets": ["black", "gray"]
+    "pallets": ["black", "gray"],
+    "previewRoom": "roomLight"
   },
   "footballs1": {
     "src": "/illustrations/footballs1.svg",

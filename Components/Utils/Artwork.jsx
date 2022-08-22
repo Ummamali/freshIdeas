@@ -7,12 +7,21 @@ export default function Artwork({
   padding = "0px",
   borderClass = "",
   className = "",
+  objectPosition = "center center",
+  style = null,
 }) {
   return (
-    <div className={`${borderClass} ${className}`}>
+    <div className={`${borderClass} ${className}`} style={style}>
       <div style={{ padding, background }} className="w-full h-full">
         <div className="w-full h-full relative">
-          <Image alt="" src={src} layout="fill" objectFit="contain" priority />
+          <Image
+            alt=""
+            src={src}
+            layout="fill"
+            objectFit="contain"
+            objectPosition={objectPosition}
+            priority
+          />
         </div>
       </div>
     </div>
