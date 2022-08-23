@@ -25,6 +25,7 @@ const lqd = {
   ],
   fullScreenDetail: {
     previews: {
+      placeholderUrl: "/imgs/logoDark.svg",
       frostImg: {
         src: "/imgs/previewFrost.jpg",
         aspectRatio: "1/1.5",
@@ -39,16 +40,16 @@ const lqd = {
         roomYellow: {
           src: "/imgs/roomWalls/roomYellow.jpg",
           aspectRatio: "1/1.5",
-          artworkWidth: "40%",
+          artworkWidth: "33%",
           artworkOpacity: "95%",
           artworkPosition: { top: "25%", left: "50%" },
         },
         roomLight: {
           src: "/imgs/roomWalls/roomLight.jpg",
-          aspectRatio: "1/1.370",
-          artworkWidth: "45%",
-          artworkOpacity: "98%",
-          artworkPosition: { top: "25%", left: "65%" },
+          aspectRatio: "1/1.333",
+          artworkWidth: "43%",
+          artworkOpacity: "90%",
+          artworkPosition: { top: "22%", left: "45%" },
         },
       },
     },

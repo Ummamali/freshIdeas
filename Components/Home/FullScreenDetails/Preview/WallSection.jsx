@@ -9,10 +9,18 @@ export default function WallSection({ artwork }) {
   const roomObj = lqd.fullScreenDetail.previews.roomImages[previewRoom];
   return (
     <div
-      className="relative h-full rounded overflow-hidden shadow shrink-0"
+      className="relative w-full rounded overflow-hidden shadow shrink-0"
       style={{ aspectRatio: roomObj.aspectRatio }}
     >
-      <Image src={roomObj.src} alt="" layout="fill" objectFit="contain" />
+      <Image
+        src={roomObj.src}
+        alt=""
+        layout="fill"
+        objectFit="contain"
+        quality={60}
+        placeholder="blur"
+        blurDataURL={lqd.fullScreenDetail.previews.placeholderUrl}
+      />
       <Artwork
         src={artwork.src}
         style={{

@@ -11,9 +11,17 @@ export default function FrostSection({ artwork }) {
       style={{
         aspectRatio: frostObj.aspectRatio,
       }}
-      className="relative rounded overflow-hidden shadow h-full shrink-0"
+      className="relative rounded overflow-hidden shadow w-full shrink-0"
     >
-      <Image src={frostObj.src} alt="" objectFit="cover" layout="fill" />
+      <Image
+        src={frostObj.src}
+        alt=""
+        objectFit="cover"
+        layout="fill"
+        quality={60}
+        placeholder="blur"
+        blurDataURL="/imgs/logoDark.svg"
+      />
       <Artwork
         src={artwork.src}
         className="w-1/2 h-1/2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-90 saturate-0 brightness-90"
