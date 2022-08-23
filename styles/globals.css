@@ -7,7 +7,7 @@
 
 /* for material symbols */
 .material-symbols-outlined {
-  line-height: 1;
+  line-height: 1 !important;
 }
 
 /* The styles scroll bar is only visible for bigger devices */
@@ -47,6 +47,23 @@
   }
 }
 
+/* styles below are tailwind specials */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* tailwind components */
+
+@layer components {
+  .abs-left-centre {
+    @apply absolute top-1/2 left-0 -translate-y-1/2 z-10;
+  }
+
+  .abs-right-centre {
+    @apply absolute top-1/2 right-0 -translate-y-1/2 z-10;
+  }
+
+  .ln {
+    @apply leading-none;
+  }
+}

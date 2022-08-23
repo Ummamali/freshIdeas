@@ -1,9 +1,12 @@
 import Image from "next/image";
 import React from "react";
+import lqd from "../../../../Data/Liquids/home";
 import Artwork from "../../../Utils/Artwork";
 import SectionLabel from "./SectionLabel";
 
-export default function WallSection({ roomObj, artwork }) {
+export default function WallSection({ artwork }) {
+  const { previewRoom = "roomYellow" } = artwork;
+  const roomObj = lqd.fullScreenDetail.previews.roomImages[previewRoom];
   return (
     <div
       className="relative h-full rounded overflow-hidden shadow shrink-0"
