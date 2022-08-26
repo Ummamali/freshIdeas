@@ -1,4 +1,5 @@
 import React from "react";
+import { activateDownload } from "../../../utilCode/clientFuncs";
 import { getTextColor } from "../../../utilCode/neutralFuncs";
 import Artwork from "../../Utils/Artwork";
 import ColorPallete from "../../Utils/ColorPallete";
@@ -29,17 +30,30 @@ export default function DetailsHeader({ artwork }) {
             </p>
           </div>
         </div>
-        <a
-          href={artwork.src}
-          download={artwork.title + "." + artwork.type}
-          style={{
-            backgroundColor: downloadBg,
-            color: getTextColor(downloadBg),
-          }}
-          className="text-sm px-5 py-2 hover:brightness-110 rounded-sm shadow-sm"
-        >
-          Download
-        </a>
+        <div className="flex items-stretch text-sm rounded-sm overflow-hidden space-x-[1px]">
+          <a
+            href={artwork.src}
+            download={artwork.title + "." + artwork.type}
+            style={{
+              backgroundColor: downloadBg,
+              color: getTextColor(downloadBg),
+            }}
+            className="hover:brightness-110 py-1.5 px-5 block"
+          >
+            Download
+          </a>
+          <button
+            className="px-2 hover:brightness-110 leading-none"
+            style={{
+              backgroundColor: downloadBg,
+              color: getTextColor(downloadBg),
+            }}
+          >
+            <span class="material-symbols-outlined block icon-300">
+              expand_more
+            </span>
+          </button>
+        </div>
       </div>
       <Artwork
         src={artwork.src}
