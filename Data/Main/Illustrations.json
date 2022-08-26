@@ -118,5 +118,12 @@
     "padding": "1.5rem",
     "keywords": ["Fresh", "Food", "restaurant"],
     "pallets": ["#BF2633", "#D9AB23", "#D99923", "#262626"]
+  },
+  "abstract": {
+    "src": "/illustrations/abstract1.svg",
+    "title": "Colored Napkins",
+    "keywords": ["Abstract"],
+    "bg": "linear-gradient(to bottom, hsl(34deg 46% 21%) 50%, hsl(34deg 46% 25%) 50%)",
+    "pallets": ["#34BFA6", "#1B594E", "#F2C029", "#D9851E"]
   }
 }
