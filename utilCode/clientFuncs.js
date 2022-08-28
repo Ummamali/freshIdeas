@@ -6,11 +6,19 @@ export async function toImageFileURL({
   width,
   height,
   svg,
+  bg,
   type = "image/png",
 }) {
   const canvas = new OffscreenCanvas(width, height);
   const ctx = canvas.getContext("2d");
-  const v = await Canvg.from(ctx, svg, preset);
+
+  if (bg) {
+    ctx.beginPath();
+    ctx.rect(0, 0, width, height);
+    ctx.fillStyle = bg;
+    ctx.fill();
+  }
+  const v = await Canvg.from(ctx, svg, { ignoreClear: true, ...preset });
 
   // Render only first frame, ignoring animations and mouse.
   await v.render();
@@ -29,8 +37,8 @@ export function downloadURL(dataUrl, filename) {
   link.click();
 }
 
-export function activateDownload({ width, height, svg, type, fileName }) {
-  toImageFileURL({ width, height, svg, type }).then((url) =>
+export function activateDownload({ width, height, svg, type, bg, fileName }) {
+  toImageFileURL({ width, height, svg, type, bg }).then((url) =>
     downloadURL(url, fileName)
   );
 }

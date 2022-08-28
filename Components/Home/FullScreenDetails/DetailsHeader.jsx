@@ -3,6 +3,7 @@ import { activateDownload } from "../../../utilCode/clientFuncs";
 import { getTextColor } from "../../../utilCode/neutralFuncs";
 import Artwork from "../../Utils/Artwork";
 import ColorPallete from "../../Utils/ColorPallete";
+import DownloadOptions from "./DownloadOptions";
 import PalleteCollection from "./PalleteCollection";
 
 export default function DetailsHeader({ artwork }) {
@@ -14,46 +15,18 @@ export default function DetailsHeader({ artwork }) {
   } else if (artwork.bg.startsWith("url")) {
     bgType = "Image";
   }
-  const downloadBg =
-    artwork.pallets.length > 0 ? artwork.pallets[0] : "#2F8F4B";
   return (
-    <header className="w-full h-full p-5 md:px-8 flex flex-col items-stretch space-y-10">
-      <div className="flex items-start justify-between">
-        <div className="flex items-start space-x-2">
-          <div className="rounded-full h-7 w-7 bg-black/75"></div>
-          <div className="leading-[1]">
-            <h3 className="text-2xl font-light text-black/80">
-              {artwork.title}
-            </h3>
-            <p className="ml-5 text-black italic text-sm -mt-1">
+    <header className="w-full h-full p-5 flex flex-col items-stretch space-y-10">
+      <div className="flex flex-col items-center space-y-2 sm:flex-row sm:justify-between">
+        <div>
+          <h3 className="text-2xl sm:text-[1.7rem] font-light text-black/80">
+            {artwork.title}
+            <span className="text-sm italic text-black ml-1">
               .{artwork.type}
-            </p>
-          </div>
-        </div>
-        <div className="flex items-stretch text-sm rounded-sm overflow-hidden space-x-[1px]">
-          <a
-            href={artwork.src}
-            download={artwork.title + "." + artwork.type}
-            style={{
-              backgroundColor: downloadBg,
-              color: getTextColor(downloadBg),
-            }}
-            className="hover:brightness-110 py-1.5 px-5 block"
-          >
-            Download
-          </a>
-          <button
-            className="px-2 hover:brightness-110 leading-none"
-            style={{
-              backgroundColor: downloadBg,
-              color: getTextColor(downloadBg),
-            }}
-          >
-            <span class="material-symbols-outlined block icon-300">
-              expand_more
             </span>
-          </button>
+          </h3>
         </div>
+        <DownloadOptions artwork={artwork} />
       </div>
       <Artwork
         src={artwork.src}
