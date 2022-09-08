@@ -36,7 +36,7 @@ export default function SingleResult({ artwork, gridArea }) {
           router.push(
             {
               pathname: router.pathname,
-              query: { ...router.query, fll: artwork.id },
+              query: { ...router.query, fll: artwork._id },
             },
             null,
             { shallow: true }

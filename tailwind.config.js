@@ -1,5 +1,5 @@
 // these variable are used multiple times in the config, change it here to update all
-const mainContainer = "1324px";
+const mainContainer = "1366px";
 
 module.exports = {
   content: [

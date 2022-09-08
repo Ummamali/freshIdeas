@@ -1,20 +1,16 @@
-import { filterCategory } from "../../utilCode/serverFuncs";
+import { getFreshIlls } from "../../utilCode/serverFuncs";
 
-const cache = new Map();
-
-export default function handler(req, res) {
-  let { cat = null, start = null, count = null } = req.query;
-  if (!cat || !start || !count) {
+export default async function handler(req, res) {
+  let { cat = null, pgIdx = null } = req.query;
+  if (cat === null || pgIdx === null) {
     res.status(400).json({ msg: "All Parameters are required" });
     return;
   }
-  start = parseInt(start);
-  count = parseInt(count);
-  let result = cache.get(cat);
-  if (!result) {
-    result = filterCategory(cat);
-    cache.set(cat, result);
+  pgIdx = parseInt(pgIdx);
+  try {
+    const result = await getFreshIlls(pgIdx, cat);
+    res.status(200).json({ result: result });
+  } catch (ex) {
+    res.status(200).json({ msg: "Execution Failed due to some error" });
   }
-  result = result.slice(start, start + count);
-  res.status(200).json({ result });
 }

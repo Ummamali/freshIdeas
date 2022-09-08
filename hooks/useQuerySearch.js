@@ -18,13 +18,10 @@ export default function useQuerySearch() {
       return null;
     }
 
-    const searchFrom = prev ? Math.max(...prev.map((i) => i.refIndex)) : 0;
-
     // its a natural search
     return `/api/search?${new URLSearchParams({
       q,
-      count,
-      searchFrom,
+      pgIdx: idx,
     }).toString()}`;
   }
 

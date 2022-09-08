@@ -15,7 +15,7 @@ export function getIllustrationsDispatcher(dispatchStore) {
         artworkGetterUrls.some((u) => args[0].startsWith(u))
       ) {
         const resObj = await fetcher(...args);
-        dispatchStore(loadArtworks(resObj.map((i) => i.item)));
+        dispatchStore(loadArtworks(resObj));
         return resObj;
       }
       return fetcher(...args);

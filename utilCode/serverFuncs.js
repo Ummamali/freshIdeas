@@ -3,6 +3,7 @@ import fsSync from "fs";
 import path from "path";
 import lqd from "../Data/Liquids/home";
 import Fuse from "fuse.js";
+import { MongoClient } from "mongodb";
 
 export async function readFromData(...filePath) {
   const fullPath = path.join(process.cwd(), "Data", ...filePath);
@@ -45,7 +46,43 @@ export function filterCategory(category) {
   return fuse.search(category);
 }
 
-export function caltulateArtworks() {
-  const artworks = readFromDataSync("Main", "Illustrations.json");
-  return Array.from(Object.keys(artworks)).length;
+export async function caltulateArtworks() {
+  const c = getMainClient();
+  try {
+    const db = c.db("mainDatabase");
+    const ills = db.collection("illustrations");
+    return await ills.countDocuments();
+  } catch (ex) {
+    throw ex;
+  } finally {
+    c.close();
+  }
+}
+
+export function getMainClient() {
+  const uri = process.env.mongoUri;
+  const client = new MongoClient(uri);
+  return client;
+}
+
+export async function getFreshIlls(pgIdx, cat) {
+  const c = getMainClient();
+  const query = cat === "Fresh" ? null : { keywords: cat };
+  try {
+    const db = c.db("mainDatabase");
+    const ills = db.collection("illustrations");
+    const n = process.env.nPerPage;
+    return (
+      await ills
+        .find(query)
+        .sort({ $natural: -1 })
+        .skip(pgIdx * n)
+        .limit(n)
+        .toArray()
+    ).map((item) => ({ ...item, _id: item._id.toString() }));
+  } catch (ex) {
+    throw ex;
+  } finally {
+    c.close();
+  }
 }

@@ -5,19 +5,14 @@ const artworksSlice = createSlice({
   name: "artworksSlice",
   initialState: {
     loaded: {},
-    preloadedCats: [],
-    requested: { data: null, err: null },
   },
   reducers: {
     load: (state, action) => {
       // action.payload >>> {id: string, .....other attributes about artwork}
       // DON'T USE THIS REDUCER DIRECTLY, RATHER USE THE THUNK BELOW
       for (const item of action.payload) {
-        state.loaded[item.id] = item;
+        state.loaded[item._id] = item;
       }
-    },
-    catPreloaded: (state, action) => {
-      state.preloadedCats.push(action.payload);
     },
   },
 });
@@ -36,9 +31,10 @@ function hydrateArtworkObjects(artworksArr) {
 }
 
 export function loadArtworks(artworksArray) {
+  console.log(artworksArray);
   return (dispatch, getStore) => {
     const loadedArtworks = getStore().artworks.loaded;
-    const newArtworks = artworksArray.filter((a) => !(a.id in loadedArtworks));
+    const newArtworks = artworksArray.filter((a) => !(a._id in loadedArtworks));
     if (newArtworks.length > 0) {
       dispatch(artworksActions.load(hydrateArtworkObjects(newArtworks)));
     }

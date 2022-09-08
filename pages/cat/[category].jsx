@@ -2,7 +2,7 @@ import React from "react";
 import HomeScreen from "../../Components/Home/HomeScreen";
 import SWRGlobalConfigs from "../../Components/Utils/SWRGlobalConfigs";
 import lqd from "../../Data/Liquids/home";
-import { filterCategory, caltulateArtworks } from "../../utilCode/serverFuncs";
+import { caltulateArtworks, getFreshIlls } from "../../utilCode/serverFuncs";
 
 export default function CategoryHome(props) {
   return (
@@ -14,8 +14,8 @@ export default function CategoryHome(props) {
 
 export async function getStaticProps({ params }) {
   const { category: currentCat } = params;
-  const preload = filterCategory(currentCat);
-  const artworkCount = caltulateArtworks();
+  const preload = await getFreshIlls(0, currentCat);
+  const artworkCount = await caltulateArtworks();
   return {
     props: { currentCat, preload, artworkCount },
   };

@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import HomeScreen from "../Components/Home/HomeScreen";
 import SWRGlobalConfigs from "../Components/Utils/SWRGlobalConfigs";
 import lqd from "../Data/Liquids/home";
-import { filterCategory, caltulateArtworks } from "../utilCode/serverFuncs";
-import Color from "color";
+import { caltulateArtworks, getFreshIlls } from "../utilCode/serverFuncs";
 
 export default function Home(props) {
   return (
@@ -16,8 +15,8 @@ export default function Home(props) {
 
 export async function getStaticProps() {
   const currentCat = lqd.categories[0];
-  const preload = filterCategory(currentCat).slice(0, lqd.tile.length);
-  const artworkCount = caltulateArtworks();
+  const preload = await getFreshIlls(0, currentCat);
+  const artworkCount = await caltulateArtworks();
   return {
     props: { preload, currentCat, artworkCount },
   };

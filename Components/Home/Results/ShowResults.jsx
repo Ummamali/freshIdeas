@@ -15,7 +15,7 @@ export default function ShowResults({ results, isLoading }) {
   const renderTiles = [];
   for (const [i, singlePage] of results.entries()) {
     const thisItems = singlePage.map((rslt, i) => (
-      <SingleResult artwork={rslt.item} key={rslt.item.id} gridArea={tile[i]} />
+      <SingleResult artwork={rslt} key={rslt._id} gridArea={tile[i]} />
     ));
     if (thisItems.length > 0) {
       renderTiles.push(

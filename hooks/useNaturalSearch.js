@@ -13,15 +13,13 @@ export default function useNaturalSearch(initialResult, category) {
   };
 
   function getKey(idx, prev) {
-    const start = idx * count;
     if (idx !== 0 && prev.length < count) {
       return null;
     }
 
     // its a natural search
     return `/api/naturalSearch?${new URLSearchParams({
-      start,
-      count,
+      pgIdx: idx,
       cat: category,
     }).toString()}`;
   }
