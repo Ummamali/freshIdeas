@@ -27,7 +27,7 @@ export default function ShowResults({ results, isLoading }) {
   }
 
   if (isLoading) {
-    renderTiles.push(<LoadingTile tile={tile} key="loadingTile" />);
+    renderTiles.push(<LoadingTile key="loadingTile" />);
   }
 
   const emptyMsg = (

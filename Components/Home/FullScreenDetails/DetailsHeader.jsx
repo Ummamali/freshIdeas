@@ -19,11 +19,9 @@ export default function DetailsHeader({ artwork }) {
     <header className="w-full h-full p-5 flex flex-col items-stretch space-y-10">
       <div className="flex flex-col items-center space-y-2 sm:flex-row sm:justify-between">
         <div>
-          <h3 className="text-2xl sm:text-[1.7rem] font-light text-black/80">
+          <h3 className="text-2xl sm:text-[1.7rem] text-black/70">
             {artwork.title}
-            <span className="text-sm italic text-black ml-1">
-              .{artwork.type}
-            </span>
+            <span className="text-sm text-black/80 ml-1">.{artwork.type}</span>
           </h3>
         </div>
         <DownloadOptions artwork={artwork} />
@@ -32,7 +30,7 @@ export default function DetailsHeader({ artwork }) {
         src={artwork.src}
         padding="1.5rem"
         background={artwork.bg}
-        className="w-full rounded-sm overflow-hidden grow sm:w-[90%] sm:mx-auto lg:w-[70%] shadow-sm"
+        className="w-full rounded-sm overflow-hidden grow sm:w-[90%] sm:mx-auto lg:w-1/2 shadow-sm"
       />
       <div className="flex items-start justify-between">
         <div>

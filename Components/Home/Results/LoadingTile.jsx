@@ -1,15 +1,10 @@
 import React from "react";
-import styles from "./ShowResults.module.css";
 
-export default function LoadingTile({ tile }) {
-  const results = tile.map((grArea) => (
-    <div
-      className="w-full h-full p-2"
-      style={{ gridArea: grArea }}
-      key={grArea}
-    >
-      <div className="w-full h-full bg-black/30"></div>
+export default function LoadingTile() {
+  return (
+    <div className="flex items-center justify-center py-2 text-sm md:text-base animate-pulse">
+      <span className="material-symbols-outlined mr-1">fast_forward</span>
+      <p className="leading-none">Loading...</p>
     </div>
-  ));
-  return <div className={"animate-pulse " + styles.singleTile}>{results}</div>;
+  );
 }

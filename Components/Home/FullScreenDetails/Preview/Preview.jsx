@@ -44,7 +44,7 @@ export default function Preview({ artwork }) {
           </button>
         ))}
       </div>
-      <div className="px-12 sm:px-16 grid grid-cols-1 grid-rows-2 gap-6 justify-items-center mx-auto md:grid-cols-2 md:grid-rows-1 md:px-8 md:gap-3 lg:max-w-5xl lg:px-16 lg:gap-7 2xl:max-w-7xl">
+      <div className="px-12 sm:px-16 grid grid-cols-1 grid-rows-2 gap-6 justify-items-center mx-auto md:grid-cols-2 md:grid-rows-1 md:px-8 md:gap-3 lg:max-w-5xl lg:px-16 lg:gap-7 2xl:max-w-6xl">
         <PreviewSection artwork={artwork} idx={currOptionIdx} />
       </div>
     </div>
