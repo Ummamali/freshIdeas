@@ -17,3 +17,20 @@ This application makes it easy to find and download stunning illustrations. You 
 - **Download as PNG, SVG, or JPEG**: Choose from multiple file formats to meet your design or technical needs. Whether you need a high-resolution PNG for web use, a vector-based SVG for scalability, or a JPEG for quicker loading, Fresh Ideas has you covered.
 
 - **Download in 3 Sizes**: Download illustrations in three popular resolutions—600x600, 1280x720, and 1920x1080. This feature caters to different project requirements, ensuring that illustrations are ready for use on websites, presentations, and digital media.
+
+## Installation  
+
+Follow these steps to set up and run the Project Manager app locally (Make sure you have Node.js and npm installed before running the commands):  
+
+1. **Clone the repository:**  
+   ```sh
+   git clone https://github.com/Ummamali/freshideas.git
+   cd freshideas
+
+2. **Install dependencies:**
+    ```sh
+    npm install
+    
+3. **Start the development server:**
+     ```sh
+     npm run dev
