@@ -34,3 +34,24 @@ Follow these steps to set up and run the Project Manager app locally (Make sure 
 3. **Start the development server:**
      ```sh
      npm run dev
+
+## 🛠 Technologies Used
+
+- **HTML**: The foundational markup language for creating web pages, providing the structure and elements that define the content of the application.
+
+- **CSS**: Cascading Style Sheets (CSS) is used to control the presentation, layout, and design of the web application. It ensures the application is visually appealing and responsive across devices.
+
+- **Tailwind CSS**: A utility-first CSS framework that enables rapid UI development with a focus on responsiveness and customizability. Tailwind CSS allows for flexible, clean, and efficient styling of the application.
+
+- **React**: A JavaScript library for building user interfaces, React enables a component-based architecture, enhancing the maintainability and scalability of the application.
+
+- **Next.js 12**: A powerful React framework used for building fast and scalable web applications with server-side rendering and static site generation. Next.js ensures optimized performance and an exceptional user experience.
+
+- **SWR (swr.js)**: A data-fetching library that provides hooks for fetching, caching, and revalidating data asynchronously. SWR ensures fast and consistent data handling, improving performance.
+
+- **Fuse.js**: A lightweight fuzzy-search library used for implementing search functionality. Fuse.js allows for fast and accurate searches, even with misspellings or partial matches.
+
+- **Canvg**: A JavaScript library that renders SVG content onto the HTML canvas. Canvg allows for dynamic SVG rendering and manipulation directly within the browser.
+
+- **Sharp**: An image processing library used for resizing, compressing, and optimizing images. Sharp ensures that images are served in optimal sizes and formats, improving load times and performance.
+
