@@ -4,6 +4,8 @@ Fresh Ideas is a modern illustration download platform designed for creatives, d
 
 This application makes it easy to find and download stunning illustrations. You can browse categories, search for specific images, and preview them before saving. Downloads are available in both PNG and SVG formats. Enjoy a fast and user-friendly experience with Fresh Ideas.
 
+<img src="./preview.jpg" alt="Preview Image"/>
+
 ## 🚀 Features
 
 - **Select Categories**: Explore a wide range of illustration categories tailored to different industries and design needs. This feature allows users to efficiently navigate and select artwork that aligns with their project requirements.
