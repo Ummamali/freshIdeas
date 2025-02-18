@@ -55,3 +55,6 @@ Follow these steps to set up and run the Project Manager app locally (Make sure 
 
 - **Sharp**: An image processing library used for resizing, compressing, and optimizing images. Sharp ensures that images are served in optimal sizes and formats, improving load times and performance.
 
+## License  
+
+This project is licensed under the **MIT License**. For more details, visit [MIT License](https://opensource.org/licenses/MIT).  
