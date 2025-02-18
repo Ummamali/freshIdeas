@@ -55,6 +55,15 @@ Follow these steps to set up and run the Project Manager app locally (Make sure 
 
 - **Sharp**: An image processing library used for resizing, compressing, and optimizing images. Sharp ensures that images are served in optimal sizes and formats, improving load times and performance.
 
+## 🚀 Deployment
+
+**Fresh Ideas** has been successfully deployed on Vercel. You can access the live application through the following link:
+
+[Live Demo - Fresh Ideas](https://freshideas.vercel.app)
+
+Vercel automatically handles deployments from the connected GitHub repository, ensuring that the app is always up-to-date with the latest changes. Every time new code is pushed, Vercel will rebuild and deploy the application with minimal downtime.
+
+
 ## License  
 
 This project is licensed under the **MIT License**. For more details, visit [MIT License](https://opensource.org/licenses/MIT).  
